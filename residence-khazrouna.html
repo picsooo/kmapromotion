@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Résidence Khazrouna — KMA Promotion</title>
+<meta name="description" content="Résidence Khazrouna — Immeuble R+10 de haut standing à Ouled Yaïch, Blida. F2, F3, F4, parking souterrain, commerces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* ===== KMA — base design system ===== */
+:root{
+  --ink:#08121E;
+  --ink-2:#0F1B2B;
+  --ink-3:#172740;
+  --ink-line:rgba(233,225,205,.14);
+  --gold:#C9A65A;
+  --gold-2:#E6CE90;
+  --gold-deep:#8F7132;
+  --plaster:#F4F2ED;
+  --plaster-2:#ECE8DF;
+  --stone:#D8D1C3;
+  --stone-2:#B9B0A0;
+  --text:#18202D;
+  --muted:#6F6B62;
+  --on-ink:#EFE9DC;
+  --on-ink-muted:#A8A69C;
+  --wa:#1F9D63;
+  --font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --font-body:'Jost','Segoe UI',system-ui,-apple-system,sans-serif;
+  --gutter:clamp(16px,5vw,72px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--on-ink);
+  font-family:var(--font-body);font-weight:300;font-size:1.02rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);font-weight:500;line-height:1.05;text-wrap:balance;letter-spacing:-.005em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- layout ---- */
+.wrap{width:min(1320px,100% - 2*var(--gutter));margin-inline:auto}
+.section{padding-block:clamp(72px,9vw,128px)}
+.section.light{background:var(--plaster);color:var(--text)}
+.section.light .eyebrow{color:var(--gold-deep)}
+.section.light .muted{color:var(--muted)}
+.section.stone{background:var(--plaster-2);color:var(--text)}
+.section.stone .eyebrow{color:var(--gold-deep)}
+.section.stone .muted{color:var(--muted)}
+.section.ink2{background:var(--ink-2)}
+.muted{color:var(--on-ink-muted)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.8}
+.h-xl{font-size:clamp(2.6rem,6.2vw,5.4rem)}
+.h-lg{font-size:clamp(2.2rem,4.4vw,3.7rem)}
+.h-md{font-size:clamp(1.7rem,2.8vw,2.4rem)}
+.h-sm{font-size:clamp(1.35rem,2vw,1.7rem)}
+.lede{font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.6;max-width:62ch}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+.stack{display:grid;gap:18px}
+
+/* ---- buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:15px 26px;border:1px solid var(--gold);border-radius:2px;
+  font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);background:var(--gold);transition:transform .35s var(--ease),background .35s,color .35s;
+  white-space:nowrap;
+}
+.btn:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--on-ink);border-color:rgba(239,233,220,.45)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold-2);background:transparent}
+.btn.dark{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.btn.dark:hover{background:var(--ink-3)}
+.btn.line{background:transparent;color:var(--text);border-color:rgba(24,32,45,.35)}
+.btn.line:hover{border-color:var(--ink);background:transparent}
+.btn .arr{width:18px;height:10px;position:relative;display:inline-block}
+.btn .arr::before{content:"";position:absolute;left:0;top:50%;width:100%;height:1px;background:currentColor;transition:width .3s}
+.btn .arr::after{content:"";position:absolute;right:0;top:50%;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+.btn:hover .arr::before{width:calc(100% + 4px)}
+.textlink{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .3s}
+.textlink:hover{border-color:var(--gold)}
+.textlink .arr{width:22px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.textlink .arr::after{content:"";position:absolute;right:0;top:-3px;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.textlink:hover .arr{width:34px}
+
+/* ---- nav ---- */
+.nav{
+  position:fixed;inset-inline:0;top:0;z-index:60;padding-top:env(safe-area-inset-top,0px);
+  transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(8,18,30,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--ink-line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;width:min(1400px,100% - 2*var(--gutter));margin-inline:auto}
+.brand{display:flex;align-items:center;gap:14px;color:var(--on-ink)}
+.brand img{height:58px;width:auto}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink);opacity:.86;position:relative;padding-block:6px}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{opacity:1}.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.burger{display:none;width:44px;height:44px;place-items:center;border:1px solid var(--ink-line);border-radius:2px}
+.burger span{display:block;width:20px;height:1px;background:var(--on-ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:100%;height:1px;background:var(--on-ink);transition:transform .3s,top .3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}
+.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+@media (max-width:1000px){
+  .nav-links{display:none}
+  .nav-cta .btn{display:none}
+  .burger{display:grid}
+  .nav.open{background:var(--ink)}
+  .nav.open .nav-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:absolute;left:0;right:0;top:100%;background:var(--ink);padding:18px var(--gutter) 28px;border-bottom:1px solid var(--ink-line)}
+  .nav.open .nav-links a{font-size:1rem;letter-spacing:.14em;padding-block:10px}
+}
+
+/* ---- page hero (residence) ---- */
+.res-hero{position:relative;height:85svh;min-height:520px;overflow:hidden;background:var(--ink)}
+.res-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb-slow 20s linear forwards}
+@keyframes kb-slow{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.res-hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(0deg,rgba(8,18,30,1) 0%,rgba(8,18,30,.6) 35%,rgba(8,18,30,.25) 60%,rgba(8,18,30,.4) 100%)}
+.res-hero-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:0}
+.res-hero-copy{width:min(1320px,100% - 2*var(--gutter));margin-inline:auto;padding-bottom:clamp(60px,8vh,100px)}
+.res-hero-copy > *{opacity:0;transform:translateY(30px)}
+.res-hero-copy .eyebrow{animation:hero-up .9s var(--ease) .2s forwards}
+.res-hero-copy h1{animation:hero-up 1s var(--ease) .35s forwards}
+.res-hero-copy p{animation:hero-up .9s var(--ease) .55s forwards}
+.res-hero-copy .ctas{animation:hero-up .9s var(--ease) .7s forwards;display:flex;gap:14px;flex-wrap:wrap}
+@keyframes hero-up{to{opacity:1;transform:none}}
+.res-hero .badge{position:absolute;top:clamp(100px,14vh,140px);left:var(--gutter);z-index:3}
+.scroll-hint{position:absolute;right:var(--gutter);top:50%;z-index:3;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;color:var(--on-ink-muted);display:flex;align-items:center;gap:14px}
+.scroll-hint::after{content:"";width:60px;height:1px;background:var(--gold);animation:hint 2.2s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:scaleX(.4);transform-origin:left}50%{transform:scaleX(1)}}
+@media (max-width:860px){.scroll-hint{display:none}}
+
+/* ---- key figures strip ---- */
+.strip{border-top:1px solid var(--ink-line);border-bottom:1px solid var(--ink-line);background:var(--ink-2)}
+.strip-in{display:grid;grid-template-columns:repeat(5,1fr);width:min(1320px,100% - 2*var(--gutter));margin-inline:auto}
+.strip-item{padding:28px 24px 28px 0;display:grid;gap:4px;border-right:1px solid var(--ink-line)}
+.strip-item+.strip-item{padding-left:24px}
+.strip-item:last-child{border-right:0}
+.strip-item b{font-family:var(--font-display);font-weight:500;font-size:1.55rem;color:var(--gold-2);letter-spacing:.01em}
+.strip-item span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+@media (max-width:900px){.strip-in{grid-template-columns:1fr 1fr}.strip-item{border-right:0;border-bottom:1px solid var(--ink-line);padding-left:0!important}}
+@media (max-width:560px){.strip-in{grid-template-columns:1fr}}
+
+/* ---- immersive gallery ---- */
+.gallery-mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(140px,16vw,220px);gap:8px}
+.gallery-mosaic .frame{cursor:zoom-in;overflow:hidden;position:relative;background:var(--ink-3)}
+.gallery-mosaic .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gallery-mosaic .frame:hover img{transform:scale(1.05)}
+.gm-1{grid-column:span 7;grid-row:span 2}
+.gm-2{grid-column:span 5;grid-row:span 1}
+.gm-3{grid-column:span 5;grid-row:span 1}
+.gm-4{grid-column:span 4;grid-row:span 1}
+.gm-5{grid-column:span 4;grid-row:span 1}
+.gm-6{grid-column:span 4;grid-row:span 1}
+@media (max-width:760px){
+  .gallery-mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .gm-1{grid-column:span 2}
+  .gm-2,.gm-3,.gm-4,.gm-5,.gm-6{grid-column:span 1;grid-row:span 1}
+}
+
+/* ---- split content ---- */
+.split-section{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:500px}
+.split-section .split-img{position:relative;overflow:hidden}
+.split-section .split-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split-section .split-content{padding:clamp(40px,6vw,80px);display:flex;flex-direction:column;justify-content:center;gap:24px}
+@media (max-width:900px){.split-section{grid-template-columns:1fr}.split-section .split-img{min-height:350px;position:relative}.split-section .split-img img{position:absolute}}
+
+/* structure list */
+.struct{display:grid;border-top:1px solid var(--ink-line);margin:0;padding:0;list-style:none}
+.struct li{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-line);align-items:baseline}
+.struct b{font-family:var(--font-display);font-weight:500;font-size:1.25rem;color:var(--gold-2)}
+.struct span{color:var(--on-ink);opacity:.86}
+@media (max-width:560px){.struct li{grid-template-columns:1fr;gap:4px}}
+
+/* amenities grid */
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink-line)}
+.amenity{background:var(--ink-2);padding:clamp(28px,3.5vw,44px) clamp(20px,2.5vw,32px);display:flex;gap:18px;align-items:flex-start;transition:background .4s}
+.amenity:hover{background:var(--ink-3)}
+.amenity .ico{width:48px;height:48px;flex:none;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;transition:background .3s,border-color .3s}
+.amenity:hover .ico{background:rgba(201,166,90,.12)}
+.amenity .ico svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.2}
+.amenity h4{font-size:1.15rem;margin-bottom:6px}
+.amenity p{color:var(--on-ink-muted);font-size:.92rem;line-height:1.5}
+@media (max-width:900px){.amenities-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.amenities-grid{grid-template-columns:1fr}}
+
+/* ---- plans ---- */
+.plans-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.tabs{display:inline-flex;border:1px solid var(--ink-line);padding:4px;gap:4px}
+.tabs button{padding:10px 18px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--on-ink-muted);border-radius:0;transition:background .3s,color .3s}
+.tabs button.is-active{background:var(--gold);color:var(--ink)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--ink-line);background:#08121E;display:grid;grid-template-rows:auto 1fr;transition:border-color .3s,transform .4s var(--ease)}
+.plan:hover{border-color:var(--gold);transform:translateY(-4px)}
+.plan .frame{aspect-ratio:4/3;max-width:100%;cursor:zoom-in;background:#08121E;overflow:hidden;position:relative}
+.plan .frame img{width:100%;height:100%;object-fit:contain;transition:transform 1.2s var(--ease)}
+.plan:hover .frame img{transform:scale(1.04)}
+.plan-body{padding:18px 20px 20px;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.plan-body b{font-family:var(--font-display);font-weight:500;font-size:1.35rem}
+.plan-body .sz{font-family:var(--font-display);font-size:1.25rem;color:var(--gold-2);font-variant-numeric:tabular-nums}
+.plan-body small{grid-column:1/-1;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-ink-muted)}
+.plan-ph{display:grid;place-content:center;gap:10px;text-align:center;cursor:default;background:linear-gradient(135deg,#0B1626,#08121E)}
+.plan-ph .ph-big{font-family:var(--font-display);font-size:4rem;line-height:1;color:var(--gold-2)}
+.plan-ph .ph-big sup{font-size:.28em;vertical-align:top;margin-left:6px;color:var(--on-ink-muted);font-family:var(--font-body)}
+.plan-ph .ph-txt{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+
+/* ---- timeline (construction progress) ---- */
+.timeline{position:relative;padding-left:48px}
+.timeline::before{content:"";position:absolute;left:19px;top:0;bottom:0;width:1px;background:var(--ink-line)}
+.tl-item{position:relative;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-48px;top:4px;width:38px;height:38px;border-radius:50%;border:1px solid var(--ink-line);background:var(--ink-2);display:grid;place-items:center;z-index:1}
+.tl-dot svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.tl-item.done .tl-dot{border-color:var(--gold);background:rgba(201,166,90,.12)}
+.tl-item.active .tl-dot{border-color:var(--gold);background:var(--gold);animation:tl-pulse 2s infinite}
+.tl-item.active .tl-dot svg{stroke:var(--ink)}
+@keyframes tl-pulse{0%{box-shadow:0 0 0 0 rgba(201,166,90,.5)}70%{box-shadow:0 0 0 12px rgba(201,166,90,0)}100%{box-shadow:0 0 0 0 rgba(201,166,90,0)}}
+.tl-label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500}
+.tl-title{font-family:var(--font-display);font-size:1.4rem;font-weight:500;margin-bottom:8px}
+.tl-desc{color:var(--on-ink-muted);font-size:.95rem;max-width:50ch}
+.tl-item.done .tl-title{color:var(--on-ink-muted);text-decoration:line-through;text-decoration-color:rgba(201,166,90,.3)}
+.tl-bar{margin-top:12px;height:4px;background:var(--ink-line);border-radius:2px;overflow:hidden;max-width:300px}
+.tl-bar i{display:block;height:100%;background:var(--gold);border-radius:2px}
+
+/* ---- location card ---- */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+@media (max-width:900px){.loc-grid{grid-template-columns:1fr}}
+.map{border:1px solid var(--ink-line);background:
+  radial-gradient(circle at 62% 48%,rgba(201,166,90,.28) 0,rgba(201,166,90,0) 26%),
+  repeating-linear-gradient(0deg,rgba(239,233,220,.05) 0 1px,transparent 1px 42px),
+  repeating-linear-gradient(90deg,rgba(239,233,220,.05) 0 1px,transparent 1px 42px),var(--ink-2);
+  aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;max-width:100%}
+.map .pin{position:absolute;left:62%;top:48%;transform:translate(-50%,-100%);width:22px;height:22px}
+.map .pin::before{content:"";position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--gold)}
+.map .pin::after{content:"";position:absolute;left:7px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.map .road{position:absolute;left:-10%;top:30%;width:120%;height:2px;background:rgba(239,233,220,.12);transform:rotate(-22deg)}
+.map .road.b{top:64%;transform:rotate(12deg);height:1px}
+.map .map-cap{display:flex;justify-content:space-between;align-items:center;width:100%;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.map .map-cap span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-ink-muted)}
+.poi{display:grid;gap:14px;margin-top:24px}
+.poi-item{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--ink-line)}
+.poi-item i{width:40px;height:40px;flex:none;border:1px solid var(--ink-line);border-radius:50%;display:grid;place-items:center}
+.poi-item i svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.poi-item strong{font-family:var(--font-display);font-weight:500;font-size:1.05rem}
+.poi-item span{font-size:.82rem;color:var(--on-ink-muted);margin-left:auto;white-space:nowrap}
+
+/* ---- CTA banner ---- */
+.cta-banner{position:relative;overflow:hidden;padding:clamp(64px,8vw,120px) 0;text-align:center}
+.cta-banner::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 0%,rgba(201,166,90,.18) 0%,transparent 60%),
+  var(--ink-2)}
+.cta-banner .wrap{position:relative;z-index:1;display:grid;gap:24px;justify-items:center}
+.cta-banner h2{max-width:16ch}
+.cta-banner p{max-width:52ch}
+.cta-banner .ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+/* ---- contact ---- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.c-list{display:grid;gap:22px;margin-top:8px}
+.c-item{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.c-item i{width:44px;height:44px;border:1px solid var(--ink-line);border-radius:50%;display:grid;place-items:center}
+.c-item svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.c-item b{display:block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-ink-muted);margin-bottom:5px;font-weight:500}
+.c-item a{display:block;color:var(--on-ink);font-size:1.05rem}
+.c-item a:hover{color:var(--gold-2)}
+.form-card{padding:clamp(24px,3.5vw,44px);border:1px solid var(--ink-line);background:var(--ink-2);align-self:start}
+.form-card .form{margin-top:22px}
+.form-card .btn{margin-top:8px;justify-self:start}
+.form{display:grid;gap:16px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.form .row{grid-template-columns:1fr}}
+.field{display:grid;gap:8px}
+.field label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--on-ink-muted)}
+.field input,.field select,.field textarea{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink-line);color:var(--on-ink);
+  padding:12px 0;font:inherit;font-weight:300;border-radius:0;transition:border-color .3s;
+}
+.field select option{color:var(--text)}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+
+/* ---- footer ---- */
+.footer{background:#050B14;border-top:1px solid var(--ink-line);padding-block:64px 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+@media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer-grid{grid-template-columns:1fr}}
+.footer h4{font-family:var(--font-body);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer a{color:var(--on-ink-muted);transition:color .3s}.footer a:hover{color:var(--gold-2)}
+.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--ink-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--on-ink-muted)}
+.socials{display:flex;gap:10px}
+.socials a{width:40px;height:40px;border:1px solid var(--ink-line);border-radius:50%;display:grid;place-items:center;transition:border-color .3s,background .3s}
+.socials a:hover{border-color:var(--gold);background:rgba(201,166,90,.1)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+
+/* ---- WhatsApp float ---- */
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:50;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .3s}
+.wa:hover{transform:translateY(-3px)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* ---- toast ---- */
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;z-index:70;background:var(--gold);color:var(--ink);padding:14px 22px;border-radius:2px;font-size:.82rem;letter-spacing:.06em;transition:.4s var(--ease);pointer-events:none;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---- lightbox ---- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,11,20,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:min(1200px,100%);max-height:82vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+.lb-x,.lb-prev,.lb-next{position:absolute;width:48px;height:48px;border:1px solid rgba(239,233,220,.3);border-radius:50%;display:grid;place-items:center;color:var(--on-ink)}
+.lb-x{top:calc(22px + env(safe-area-inset-top,0px));right:22px}
+.lb-prev{left:18px;top:50%;transform:translateY(-50%)}.lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.lb svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+/* ---- badge ---- */
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:8px 12px;background:rgba(8,18,30,.72);color:var(--gold-2);backdrop-filter:blur(6px);border:1px solid rgba(201,166,90,.35);border-radius:2px}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,166,90,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,166,90,.6)}70%{box-shadow:0 0 0 8px rgba(201,166,90,0)}100%{box-shadow:0 0 0 0 rgba(201,166,90,0)}}
+
+/* ---- reveal ---- */
+.rv.play{animation:rise .9s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+}
+
+/* ---- counter animation ---- */
+.counter-num{font-family:var(--font-display);font-weight:500;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+
+<a class="sr" href="#main">Aller au contenu</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="KMA Promotion — accueil"><img src="assets/img/logo.webp" alt="KMA Promotion"></a>
+    <ul class="nav-links">
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#equipements">Équipements</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#avancement">Avancement</a></li>
+      <li><a href="#localisation">Localisation</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" style="opacity:.6">← Accueil</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn ghost" href="#contact">Réserver <span class="arr"></span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="res-hero" id="top">
+  <img src="assets/img/kh11.webp" alt="Résidence Khazrouna — vue d'ensemble de la tour R+10">
+  <span class="badge">En cours de réalisation</span>
+  <div class="res-hero-in">
+    <div class="res-hero-copy">
+      <span class="eyebrow">KMA Promotion · Ouled Yaïch, Blida</span>
+      <h1 class="h-xl" style="max-width:14ch">Résidence<br>Khazrouna</h1>
+      <p class="lede" style="max-width:50ch">Un immeuble de dix étages au cœur de Ouled Yaïch — F2, F3 et F4 de haut standing, parking souterrain et commerces en pied d'immeuble.</p>
+      <div class="ctas">
+        <a class="btn" href="#plans">Voir les plans <span class="arr"></span></a>
+        <a class="btn ghost" href="#contact">Réserver une visite</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Défiler</div>
+</section>
+
+<!-- ================= KEY FIGURES ================= -->
+<div class="strip">
+  <div class="strip-in">
+    <div class="strip-item"><b>R+10</b><span>Étages</span></div>
+    <div class="strip-item"><b>F2 · F3 · F4</b><span>Typologies</span></div>
+    <div class="strip-item"><b>40 – 150 m²</b><span>Surfaces</span></div>
+    <div class="strip-item"><b>22 places</b><span>Parking souterrain</span></div>
+    <div class="strip-item"><b>3 blocs</b><span>A · B · C</span></div>
+  </div>
+</div>
+
+<!-- ================= PRESENTATION ================= -->
+<div class="split-section" id="presentation">
+  <div class="split-img">
+    <img src="assets/img/kh10.webp" alt="Résidence Khazrouna de nuit">
+  </div>
+  <div class="split-content">
+    <span class="eyebrow rv">Le projet</span>
+    <h2 class="h-lg rv">Un immeuble complet : commerces en bas, dix étages de logements au-dessus.</h2>
+    <p class="muted rv" style="max-width:50ch">Résidence Khazrouna est un projet résidentiel moderne conçu pour offrir un cadre de vie alliant confort, élégance et fonctionnalité. Le projet intègre des espaces commerciaux et de services au RDC et en mezzanine, pour un quotidien pratique et agréable.</p>
+    <ul class="struct rv">
+      <li><b>Sous-sol</b><span>Parking souterrain sécurisé — 22 places.</span></li>
+      <li><b>RDC + Mezzanine</b><span>Locaux de services et espaces commerciaux.</span></li>
+      <li><b>R+1 → R+10</b><span>10 étages de résidences — F2, F3 et F4.</span></li>
+    </ul>
+    <div class="rv" style="margin-top:8px">
+      <a class="textlink" href="#plans">Voir les plans d'appartements <span class="arr"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= GALLERY ================= -->
+<section class="section" id="galerie" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Galerie</span>
+      <h2 class="h-lg">Visitez Khazrouna<br>en images.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gallery-mosaic rv" data-gallery>
+      <figure class="frame gm-1" data-src="assets/img/kh11.webp" data-alt="Vue d'ensemble de la tour" data-cap="Khazrouna — vue d'ensemble"><img src="assets/img/kh11.webp" alt="Vue d'ensemble"></figure>
+      <figure class="frame gm-2" data-src="assets/img/kh10.webp" data-alt="Façade éclairée de nuit" data-cap="Khazrouna — de nuit"><img src="assets/img/kh10.webp" alt="De nuit"></figure>
+      <figure class="frame gm-3" data-src="assets/img/khc.webp" data-alt="Façade de jour — contre-plongée" data-cap="Khazrouna — façade"><img src="assets/img/khc.webp" alt="Façade de jour"></figure>
+      <figure class="frame gm-4" data-src="assets/img/khb.webp" data-alt="Balcons et claustras bois" data-cap="Khazrouna — balcons"><img src="assets/img/khb.webp" alt="Balcons"></figure>
+      <figure class="frame gm-5" data-src="assets/img/khd.webp" data-alt="Entrée aménagée avec paysagement" data-cap="Khazrouna — entrée"><img src="assets/img/khd.webp" alt="Entrée"></figure>
+      <figure class="frame gm-6" data-src="assets/img/khe.webp" data-alt="Parking souterrain" data-cap="Khazrouna — parking"><img src="assets/img/khe.webp" alt="Parking"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EQUIPEMENTS ================= -->
+<section class="section" id="equipements" style="padding-top:clamp(72px,9vw,128px)">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;justify-items:center">
+      <span class="eyebrow">Équipements &amp; prestations</span>
+      <h2 class="h-lg" style="max-width:18ch">Chaque détail a été pensé pour votre confort.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="amenities-grid rv">
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M12 11V5m-4 6V7m8 4V7"/><circle cx="12" cy="3" r="1.5"/></svg></span>
+        <div><h4>Parking souterrain</h4><p>22 places sécurisées au sous-sol, avec accès direct aux étages par ascenseur.</p></div>
+      </div>
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="M2 8h20M8 4v4"/></svg></span>
+        <div><h4>Ascenseurs</h4><p>Ascenseurs modernes desservant chaque étage, pour un accès rapide et confortable.</p></div>
+      </div>
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><h4>Vidéosurveillance</h4><p>Caméras de surveillance dans les parties communes et le parking pour votre sécurité.</p></div>
+      </div>
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <div><h4>Poste de garde</h4><p>Accueil et contrôle d'accès permanent, pour une résidence sécurisée jour et nuit.</p></div>
+      </div>
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></span>
+        <div><h4>Aire de jeux</h4><p>Espace extérieur aménagé pour les enfants, sécurisé et visible depuis les logements.</p></div>
+      </div>
+      <div class="amenity">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v6l3-3M12 8l-3-3"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg></span>
+        <div><h4>Deux bâches à eau</h4><p>Réserves d'eau intégrées pour garantir l'alimentation continue de la résidence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANS ================= -->
+<section class="section ink2" id="plans">
+  <div class="wrap">
+    <div class="plans-head rv">
+      <div class="stack" style="gap:8px"><span class="eyebrow">Plans des appartements</span><h2 class="h-lg">Choisissez votre futur chez-vous.</h2></div>
+      <div class="tabs" data-tabs="#plans-kh"><button class="is-active" data-filter="all">Tous</button><button data-filter="F2">F2</button><button data-filter="F3">F3</button><button data-filter="F4">F4</button></div>
+    </div>
+    <div class="plans rv" id="plans-kh" data-gallery>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_a_f3a.webp" data-alt="Plan F3 A — Bloc A — 90 m²" data-cap="Khazrouna · F3 A · Bloc A · 90 m²"><img src="assets/img/khp_a_f3a.webp" alt="Plan F3 A — Bloc A"></figure><div class="plan-body"><b>F3 A · Bloc A</b><span class="sz">90 m²</span><small>3 pièces · Suite parentale · Balcon</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_a_f3b.webp" data-alt="Plan F3 B — Bloc A — 70 m²" data-cap="Khazrouna · F3 B · Bloc A · 70 m²"><img src="assets/img/khp_a_f3b.webp" alt="Plan F3 B — Bloc A"></figure><div class="plan-body"><b>F3 B · Bloc A</b><span class="sz">70 m²</span><small>3 pièces · Dressing · Balcon</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_b_f3a.webp" data-alt="Plan F3 A — Bloc B — 100 m²" data-cap="Khazrouna · F3 A · Bloc B · 100 m²"><img src="assets/img/khp_b_f3a.webp" alt="Plan F3 A — Bloc B"></figure><div class="plan-body"><b>F3 A · Bloc B</b><span class="sz">100 m²</span><small>3 pièces · Suite parentale · Balcon</small></div></article>
+      <article class="plan" data-type="F2"><figure class="frame" data-src="assets/img/khp_c_f2.webp" data-alt="Plan F2 — Bloc C — 63 m²" data-cap="Khazrouna · F2 · Bloc C · 63 m²"><img src="assets/img/khp_c_f2.webp" alt="Plan F2 — Bloc C"></figure><div class="plan-body"><b>F2 · Bloc C</b><span class="sz">63 m²</span><small>2 pièces · Balcon</small></div></article>
+      <article class="plan" data-type="F4"><figure class="frame" data-src="assets/img/khp_c_f4.webp" data-alt="Plan F4 — Bloc C — 120 m²" data-cap="Khazrouna · F4 · Bloc C · 120 m²"><img src="assets/img/khp_c_f4.webp" alt="Plan F4 — Bloc C"></figure><div class="plan-body"><b>F4 · Bloc C</b><span class="sz">120 m²</span><small>4 pièces · Suite parentale · 2 balcons</small></div></article>
+      <article class="plan" data-type="F3"><div class="frame plan-ph"><span class="ph-big">F3<sup>95 m²</sup></span><span class="ph-txt">Plan disponible sur demande</span></div><div class="plan-body"><b>F3 B · Bloc B</b><span class="sz">95 m²</span><small>3 pièces · Sur demande</small></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AVANCEMENT CHANTIER ================= -->
+<section class="section light" id="avancement">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:start">
+      <div class="rv">
+        <span class="eyebrow" style="color:var(--gold-deep)">Suivi du chantier</span>
+        <h2 class="h-lg" style="color:var(--ink);margin-top:18px;margin-bottom:12px">Suivez l'avancement en temps réel.</h2>
+        <p class="muted lede">Le chantier est réalisé par ETG, l'entreprise de travaux du groupe KMA. Chaque étape est documentée et partagée avec les futurs propriétaires.</p>
+        <div style="margin-top:32px">
+          <div class="timeline">
+            <div class="tl-item done">
+              <div class="tl-dot"><svg viewBox="0 0 16 16"><path d="m3 8 4 4 6-8"/></svg></div>
+              <div class="tl-label">Phase 1</div>
+              <div class="tl-title" style="color:var(--muted)">Terrassement &amp; fondations</div>
+              <div class="tl-desc" style="color:var(--stone-2)">Excavation, ferraillage et coulage des fondations. Infrastructure souterraine terminée.</div>
+            </div>
+            <div class="tl-item done">
+              <div class="tl-dot"><svg viewBox="0 0 16 16"><path d="m3 8 4 4 6-8"/></svg></div>
+              <div class="tl-label">Phase 2</div>
+              <div class="tl-title" style="color:var(--muted)">Gros œuvre — sous-sol à R+5</div>
+              <div class="tl-desc" style="color:var(--stone-2)">Structure béton armé, voiles, poteaux et dalles jusqu'au 5ᵉ étage.</div>
+            </div>
+            <div class="tl-item active">
+              <div class="tl-dot"><svg viewBox="0 0 16 16"><path d="M8 3v5l3 3"/></svg></div>
+              <div class="tl-label">Phase 3 — en cours</div>
+              <div class="tl-title" style="color:var(--ink)">Gros œuvre — R+6 à R+10</div>
+              <div class="tl-desc" style="color:var(--muted)">Élévation de la structure des étages supérieurs. Avancement estimé à 65%.</div>
+              <div class="tl-bar"><i style="width:65%"></i></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2"/></svg></div>
+              <div class="tl-label">Phase 4</div>
+              <div class="tl-title" style="color:var(--ink)">Second œuvre &amp; finitions</div>
+              <div class="tl-desc" style="color:var(--muted)">Revêtements, menuiserie, plomberie, électricité, peintures et aménagements extérieurs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rv" style="position:sticky;top:120px">
+        <div style="display:grid;gap:8px">
+          <div style="aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--stone)">
+            <img src="assets/img/khc.webp" alt="Chantier Khazrouna — état actuel" style="width:100%;height:100%;object-fit:cover">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(8,18,30,.8))">
+              <span class="badge">Chantier actif</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--stone)"><img src="assets/img/khe.webp" alt="Parking souterrain" style="width:100%;height:100%;object-fit:cover"></div>
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--stone)"><img src="assets/img/khd.webp" alt="Entrée aménagée" style="width:100%;height:100%;object-fit:cover"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCALISATION ================= -->
+<section class="section" id="localisation">
+  <div class="wrap">
+    <div class="loc-grid rv">
+      <div>
+        <span class="eyebrow">Localisation</span>
+        <h2 class="h-lg" style="margin-top:18px;margin-bottom:12px">Au cœur de Ouled Yaïch,<br>sur la RN1.</h2>
+        <p class="muted lede">Idéalement située sur la route de la ZI de Béni Mered, la résidence Khazrouna bénéficie d'un accès direct à la RN1 et à tous les services de la ville de Blida.</p>
+        <div class="poi">
+          <div class="poi-item"><i><svg viewBox="0 0 16 16"><path d="M2 14L8 2l6 12H2z"/></svg></i><strong>Route Nationale 1</strong><span>Accès direct</span></div>
+          <div class="poi-item"><i><svg viewBox="0 0 16 16"><path d="M8 14s-5-4.4-5-8a5 5 0 0 1 10 0c0 3.6-5 8-5 8z"/><circle cx="8" cy="6" r="1.8"/></svg></i><strong>Centre-ville Blida</strong><span>8 min</span></div>
+          <div class="poi-item"><i><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 6h12"/></svg></i><strong>Commerces &amp; services</strong><span>Sur place</span></div>
+          <div class="poi-item"><i><svg viewBox="0 0 16 16"><path d="M4 15V5l4-3 4 3v10"/><path d="M8 15v-4"/></svg></i><strong>Écoles &amp; mosquées</strong><span>5 min</span></div>
+          <div class="poi-item"><i><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></i><strong>Autoroute Est-Ouest</strong><span>15 min</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="map" aria-label="Localisation Khazrouna">
+          <span class="road"></span><span class="road b"></span><span class="pin"></span>
+          <div class="map-cap">
+            <span>Route de la ZI de Béni Mered · Ouled Yaïch</span>
+            <a class="textlink" href="https://www.google.com/maps/search/R%C3%A9sidence+Khazrouna+Ouled+Ya%C3%AFch" target="_blank" rel="noopener">Maps <span class="arr"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BANNER ================= -->
+<div class="cta-banner">
+  <div class="wrap">
+    <span class="eyebrow rv">Ne manquez pas cette opportunité</span>
+    <h2 class="h-xl rv" style="max-width:16ch;margin-inline:auto">Votre appartement vous attend.</h2>
+    <p class="muted lede rv" style="margin-inline:auto;text-align:center">Paiement comptant ou financement bancaire — un conseiller KMA vous accompagne dans chaque étape, de la réservation à la remise des clés.</p>
+    <div class="ctas rv">
+      <a class="btn" href="#contact">Prendre rendez-vous <span class="arr"></span></a>
+      <a class="btn ghost" href="https://wa.me/213560550558?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20R%C3%A9sidence%20Khazrouna" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<section class="section ink2" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="stack rv">
+        <span class="eyebrow">Résidence Khazrouna</span>
+        <h2 class="h-lg">Réservez votre visite sur le chantier.</h2>
+        <p class="muted lede">Un conseiller vous accueille au siège de KMA à Blida ou directement sur le chantier à Ouled Yaïch.</p>
+        <div class="c-list">
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M3 2h3l1.5 3.5L6 7a8 8 0 0 0 3 3l1.5-1.5L14 10v3a1 1 0 0 1-1 1A11 11 0 0 1 2 3a1 1 0 0 1 1-1z"/></svg></i><div><b>Téléphone</b><a href="tel:0560550558">05 60 55 05 58</a><a href="tel:0799401712">07 99 40 17 12</a></div></div>
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M2 4h12v8H2z"/><path d="m2 4 6 5 6-5"/></svg></i><div><b>E-mail</b><a href="mailto:kma.pro@outlook.com">kma.pro@outlook.com</a></div></div>
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M8 14s-5-4.4-5-8a5 5 0 0 1 10 0c0 3.6-5 8-5 8z"/><circle cx="8" cy="6" r="1.8"/></svg></i><div><b>Siège</b><a href="https://www.google.com/maps/search/KMA+GROUP+Blida" target="_blank" rel="noopener">Rue Belkacem El Ouzri n°17, Blida 09000</a><span class="muted" style="font-size:.9rem">Samedi – Jeudi · 8h30 – 16h30</span></div></div>
+        </div>
+      </div>
+      <div class="form-card rv">
+        <span class="eyebrow">Formulaire · Khazrouna</span>
+        <h3 class="h-md" style="margin-top:12px">Un conseiller vous rappelle sous 24h.</h3>
+        <form class="form" data-ok="Merci — votre demande est enregistrée, un conseiller KMA Promotion vous rappelle sous 24h.">
+          <div class="row">
+            <div class="field"><label for="p-nom">Nom &amp; prénom</label><input id="p-nom" name="nom" type="text" placeholder="Votre nom" required></div>
+            <div class="field"><label for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" placeholder="05 .. .. .. .." required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="p-typ">Typologie souhaitée</label><select id="p-typ" name="type"><option>F3</option><option>F2</option><option>F4</option></select></div>
+            <div class="field"><label for="p-pay">Mode de paiement</label><select id="p-pay" name="pay"><option>Paiement comptant</option><option>Financement bancaire</option><option>À définir</option></select></div>
+          </div>
+          <div class="field"><label for="p-msg">Message</label><textarea id="p-msg" name="message" placeholder="Étage souhaité, orientation, nombre de pièces, questions…"></textarea></div>
+          <button class="btn" type="submit">Envoyer ma demande <span class="arr"></span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack" style="gap:16px">
+        <a class="brand" href="index.html"><img src="assets/img/logo.webp" alt="KMA Promotion" style="height:72px"></a>
+        <p class="muted" style="max-width:36ch">Promotion immobilière — conception d'immeubles de haut standing, complexes résidentiels privatifs et architectures d'exception.</p>
+        <div class="socials">
+          <a href="https://instagram.com/kma_promotion" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 5.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.5 8c-.1-1.5-.4-2.9-1.5-4S17.5 2.6 16 2.5C14.4 2.4 9.6 2.4 8 2.5 6.5 2.6 5.1 2.9 4 4S2.6 6.5 2.5 8c-.1 1.6-.1 6.4 0 8 .1 1.5.4 2.9 1.5 4s2.5 1.4 4 1.5c1.6.1 6.4.1 8 0 1.5-.1 2.9-.4 4-1.5s1.4-2.5 1.5-4c.1-1.6.1-6.4 0-8zm-2 9.7a3.2 3.2 0 0 1-1.8 1.8c-1.2.5-4.2.4-5.7.4s-4.5.1-5.7-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.2-.4-4.2-.4-5.7s-.1-4.5.4-5.7A3.2 3.2 0 0 1 6.3 4.5c1.2-.5 4.2-.4 5.7-.4s4.5-.1 5.7.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.2.4 4.2.4 5.7s.1 4.5-.4 5.7z"/></svg></a>
+          <a href="https://www.facebook.com/ETEKMABLIDA" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+          <a href="https://www.tiktok.com/@etg_kma_dz" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Résidence Khazrouna</h4><ul><li><a href="#presentation">Présentation</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#plans">Plans</a></li><li><a href="#avancement">Avancement</a></li></ul></div>
+      <div><h4>KMA Promotion</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="index.html#touares">Résidence Touares</a></li><li><a href="index.html#financement">Financement</a></li><li><a href="index.html#contact">Contact général</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:0560550558">05 60 55 05 58</a></li><li><a href="tel:0799401712">07 99 40 17 12</a></li><li><a href="mailto:kma.pro@outlook.com">kma.pro@outlook.com</a></li><li><a href="#contact">Rue Belkacem El Ouzri n°17, Blida</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 KMA Promotion — KMA Groupe. Tous droits réservés.</span>
+      <span>Proposition de refonte — Webminds Digital Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/213560550558" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2 .6 2.6.5a2.4 2.4 0 0 0 1.5-1.1 1.9 1.9 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg></a>
+<div class="toast" role="status" aria-live="polite"></div>
+<div class="lb" role="dialog" aria-label="Galerie">
+  <button class="lb-x" aria-label="Fermer"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  <button class="lb-prev" aria-label="Précédent"><svg viewBox="0 0 16 16"><path d="M10 2 4 8l6 6"/></svg></button>
+  <img src="" alt="">
+  <button class="lb-next" aria-label="Suivant"><svg viewBox="0 0 16 16"><path d="m6 2 6 6-6 6"/></svg></button>
+  <div class="lb-cap"></div>
+</div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* nav scroll */
+  var nav=$('.nav');
+  function onScroll(){ if(nav) nav.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* burger */
+  var burger=$('.burger');
+  if(burger) burger.addEventListener('click',function(){ nav.classList.toggle('open'); burger.setAttribute('aria-expanded', nav.classList.contains('open')); });
+  $$('.nav-links a').forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); }); });
+
+  /* reveal */
+  if('IntersectionObserver' in window){
+    var vh=window.innerHeight;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('play'); io.unobserve(e.target); } }); },{threshold:.12});
+    $$('.rv').forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top>vh) io.observe(el); else el.classList.add('play'); });
+  }
+
+  /* tabs / filters */
+  $$('[data-tabs]').forEach(function(group){
+    var btns=$$('button',group), target=$(group.getAttribute('data-tabs'));
+    if(!target) return;
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){ x.classList.toggle('is-active', x===b); });
+      var f=b.getAttribute('data-filter');
+      $$('[data-type]',target).forEach(function(card){ card.hidden = !(f==='all' || card.getAttribute('data-type')===f); });
+    }); });
+  });
+
+  /* forms -> toast */
+  var toast=$('.toast');
+  $$('form').forEach(function(f){ f.addEventListener('submit',function(e){ e.preventDefault(); if(toast){ toast.textContent=f.getAttribute('data-ok')||'Demande envoyée.'; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); },3600); } f.reset(); }); });
+
+  /* lightbox */
+  var lb=$('.lb'); if(lb){
+    var lbImg=$('img',lb), lbCap=$('.lb-cap',lb), items=[], k=0;
+    function open(list,idx){ items=list; k=idx; show(); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function show(){ var it=items[k]; lbImg.src=it.src; lbImg.alt=it.alt||''; lbCap.textContent=(it.cap||it.alt||'')+(items.length>1?'  ·  '+(k+1)+' / '+items.length:''); }
+    function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+    $$('[data-gallery]').forEach(function(g){
+      var figs=$$('[data-src]',g);
+      var list=figs.map(function(f){ return {src:f.getAttribute('data-src'), alt:f.getAttribute('data-alt')||'', cap:f.getAttribute('data-cap')||''}; });
+      figs.forEach(function(f,idx){ f.addEventListener('click',function(){ open(list,idx); }); f.setAttribute('tabindex','0'); f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(list,idx); } }); });
+    });
+    $('.lb-x',lb).addEventListener('click',close);
+    $('.lb-prev',lb).addEventListener('click',function(){ k=(k-1+items.length)%items.length; show(); });
+    $('.lb-next',lb).addEventListener('click',function(){ k=(k+1)%items.length; show(); });
+    lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open')) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight'){ k=(k+1)%items.length; show(); } if(e.key==='ArrowLeft'){ k=(k-1+items.length)%items.length; show(); } });
+  }
+
+  /* smooth scroll for anchor links */
+  $$('a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(e){
+    var t=$(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  }); });
+})();
+</script>
+</body>
+</html>
