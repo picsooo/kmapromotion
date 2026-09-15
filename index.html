@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>KMA Promotion</title>
+<meta name="description" content="Maquette — KMA Promotion Immobilière, Blida : résidences Khazrouna et Touares à Ouled Yaïch, plans F2 à F4, duplex, financement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* ===== KMA — base design system ===== */
+:root{
+  --ink:#08121E;
+  --ink-2:#0F1B2B;
+  --ink-3:#172740;
+  --ink-line:rgba(233,225,205,.14);
+  --gold:#C9A65A;
+  --gold-2:#E6CE90;
+  --gold-deep:#8F7132;
+  --plaster:#F4F2ED;
+  --plaster-2:#ECE8DF;
+  --stone:#D8D1C3;
+  --stone-2:#B9B0A0;
+  --text:#18202D;
+  --muted:#6F6B62;
+  --on-ink:#EFE9DC;
+  --on-ink-muted:#A8A69C;
+  --wa:#1F9D63;
+  --font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --font-body:'Jost','Segoe UI',system-ui,-apple-system,sans-serif;
+  --gutter:clamp(16px,5vw,72px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--on-ink);
+  font-family:var(--font-body);font-weight:300;font-size:1.02rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);font-weight:500;line-height:1.05;text-wrap:balance;letter-spacing:-.005em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- layout ---- */
+.wrap{width:min(1320px,100% - 2*var(--gutter));margin-inline:auto}
+.section{padding-block:clamp(72px,9vw,128px)}
+.section.light{background:var(--plaster);color:var(--text)}
+.section.light .eyebrow{color:var(--gold-deep)}
+.section.light .muted{color:var(--muted)}
+.section.stone{background:var(--plaster-2);color:var(--text)}
+.section.stone .eyebrow{color:var(--gold-deep)}
+.section.stone .muted{color:var(--muted)}
+.section.ink2{background:var(--ink-2)}
+.muted{color:var(--on-ink-muted)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.8}
+.h-xl{font-size:clamp(2.6rem,6.2vw,5.4rem)}
+.h-lg{font-size:clamp(2.2rem,4.4vw,3.7rem)}
+.h-md{font-size:clamp(1.7rem,2.8vw,2.4rem)}
+.h-sm{font-size:clamp(1.35rem,2vw,1.7rem)}
+.lede{font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.6;max-width:62ch}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head.split{grid-template-columns:1.2fr 1fr;align-items:end;gap:40px}
+@media (max-width:860px){.sec-head.split{grid-template-columns:1fr}}
+.stack{display:grid;gap:18px}
+
+/* ---- buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:15px 26px;border:1px solid var(--gold);border-radius:2px;
+  font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);background:var(--gold);transition:transform .35s var(--ease),background .35s,color .35s;
+  white-space:nowrap;
+}
+.btn:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--on-ink);border-color:rgba(239,233,220,.45)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold-2);background:transparent}
+.btn.dark{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.btn.dark:hover{background:var(--ink-3)}
+.btn.line{background:transparent;color:var(--text);border-color:rgba(24,32,45,.35)}
+.btn.line:hover{border-color:var(--ink);background:transparent}
+.btn .arr{width:18px;height:10px;position:relative;display:inline-block}
+.btn .arr::before{content:"";position:absolute;left:0;top:50%;width:100%;height:1px;background:currentColor;transition:width .3s}
+.btn .arr::after{content:"";position:absolute;right:0;top:50%;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+.btn:hover .arr::before{width:calc(100% + 4px)}
+.textlink{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .3s}
+.textlink:hover{border-color:var(--gold)}
+.textlink .arr{width:22px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.textlink .arr::after{content:"";position:absolute;right:0;top:-3px;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.textlink:hover .arr{width:34px}
+
+/* ---- nav ---- */
+.nav{
+  position:fixed;inset-inline:0;top:0;z-index:60;padding-top:env(safe-area-inset-top,0px);
+  transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(8,18,30,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--ink-line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;width:min(1400px,100% - 2*var(--gutter));margin-inline:auto}
+.brand{display:flex;align-items:center;gap:14px;color:var(--on-ink)}
+.brand-mark{font-family:var(--font-display);font-size:1.75rem;font-weight:600;letter-spacing:.06em;color:var(--gold-2);line-height:1}
+.brand-sub{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--on-ink-muted);margin-top:3px}
+.brand img{height:54px;width:auto}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink);opacity:.86;position:relative;padding-block:6px}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{opacity:1}.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.burger{display:none;width:44px;height:44px;place-items:center;border:1px solid var(--ink-line);border-radius:2px}
+.burger span{display:block;width:20px;height:1px;background:var(--on-ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:100%;height:1px;background:var(--on-ink);transition:transform .3s,top .3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}
+.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+@media (max-width:1000px){
+  .nav-links{display:none}
+  .nav-cta .btn{display:none}
+  .burger{display:grid}
+  .nav.open{background:var(--ink)}
+  .nav.open .nav-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:absolute;left:0;right:0;top:100%;background:var(--ink);padding:18px var(--gutter) 28px;border-bottom:1px solid var(--ink-line)}
+  .nav.open .nav-links a{font-size:1rem;letter-spacing:.14em;padding-block:10px}
+}
+
+/* ---- hero slider ---- */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--ease);pointer-events:none}
+.slide.is-active{opacity:1;pointer-events:auto;z-index:1}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);will-change:transform}
+.slide.is-active img{animation:kb 8s linear forwards}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+.slide::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(8,18,30,.86) 0%,rgba(8,18,30,.55) 45%,rgba(8,18,30,.18) 100%),
+  linear-gradient(0deg,rgba(8,18,30,.9) 0%,rgba(8,18,30,0) 45%);
+}
+.slide-in{position:absolute;inset:0;display:flex;align-items:flex-end;padding-bottom:clamp(110px,14vh,170px)}
+.slide-copy{width:min(1320px,100% - 2*var(--gutter));margin-inline:auto;display:grid;gap:22px;max-width:100%}
+.slide-copy .eyebrow{transform:translateY(20px);opacity:0;transition:.9s var(--ease) .25s}
+.slide-copy h1,.slide-copy h2{transform:translateY(30px);opacity:0;transition:1s var(--ease) .4s;max-width:14ch}
+.slide-copy p{transform:translateY(20px);opacity:0;transition:.9s var(--ease) .6s}
+.slide-copy .ctas{transform:translateY(20px);opacity:0;transition:.9s var(--ease) .75s;display:flex;gap:14px;flex-wrap:wrap}
+.slide.is-active .slide-copy > *{transform:none;opacity:1}
+.hero-ui{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1320px,100% - 2*var(--gutter));margin-inline:auto;padding-bottom:calc(30px + env(safe-area-inset-bottom,0px));padding-right:96px}
+.counter{font-family:var(--font-display);font-size:1.4rem;color:var(--on-ink);display:flex;align-items:baseline;gap:8px}
+.counter small{font-family:var(--font-body);font-size:.72rem;letter-spacing:.2em;color:var(--on-ink-muted)}
+.dots{display:flex;gap:10px}
+.dots button{width:44px;height:2px;background:rgba(239,233,220,.3);position:relative;overflow:hidden;padding:0;border-radius:0}
+.dots button i{position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.dots button.is-active i{animation:prog var(--dur,6s) linear forwards}
+@keyframes prog{to{transform:scaleX(1)}}
+.arrows{display:flex;gap:8px}
+.arrows button{width:48px;height:48px;border:1px solid rgba(239,233,220,.35);border-radius:50%;display:grid;place-items:center;transition:border-color .3s,background .3s}
+.arrows button:hover{border-color:var(--gold);background:rgba(201,166,90,.12)}
+.arrows svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
+.scroll-hint{position:absolute;right:var(--gutter);top:50%;z-index:3;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;color:var(--on-ink-muted);display:flex;align-items:center;gap:14px}
+.scroll-hint::after{content:"";width:60px;height:1px;background:var(--gold);animation:hint 2.2s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:scaleX(.4);transform-origin:left}50%{transform:scaleX(1)}}
+@media (max-width:860px){.scroll-hint{display:none}.hero-ui{flex-wrap:wrap;padding-right:0}.arrows{display:none}.slide-in{padding-bottom:150px}}
+
+/* ---- info strip ---- */
+.strip{border-top:1px solid var(--ink-line);border-bottom:1px solid var(--ink-line);background:var(--ink-2)}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr);width:min(1320px,100% - 2*var(--gutter));margin-inline:auto}
+.strip-item{padding:22px 24px 22px 0;display:grid;gap:4px;border-right:1px solid var(--ink-line)}
+.strip-item+.strip-item{padding-left:24px}
+.strip-item:last-child{border-right:0}
+.strip-item b{font-family:var(--font-display);font-weight:500;font-size:1.3rem;color:var(--gold-2);letter-spacing:.01em}
+.strip-item span{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+@media (max-width:860px){.strip-in{grid-template-columns:1fr 1fr}.strip-item{border-right:0;border-bottom:1px solid var(--ink-line);padding-left:0!important}.strip-item b{font-size:1.15rem}}
+@media (max-width:560px){.strip-in{grid-template-columns:1fr}.strip-item{padding-block:16px}}
+
+/* ---- figures ---- */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid currentColor;border-color:rgba(24,32,45,.15)}
+.fig{padding:28px 24px 28px 0;border-right:1px solid rgba(24,32,45,.15);display:grid;gap:6px}
+.fig+.fig{padding-left:24px}.fig:last-child{border-right:0}
+.fig b{font-family:var(--font-display);font-weight:500;font-size:clamp(2.6rem,4.5vw,4rem);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.fig b em{font-style:normal;color:var(--gold-deep);font-size:.55em;vertical-align:top;margin-left:2px}
+.fig span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:860px){.figs{grid-template-columns:1fr 1fr}.fig{border-right:0;padding-left:0!important;border-bottom:1px solid rgba(24,32,45,.15)}}
+
+/* ---- chips ---- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;padding:9px 13px;border:1px solid rgba(24,32,45,.22);border-radius:2px;color:var(--text)}
+.on-ink .chip,.section:not(.light):not(.stone) .chip{border-color:var(--ink-line);color:var(--on-ink)}
+.chip.gold{border-color:var(--gold);color:var(--gold-deep)}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:8px 12px;background:rgba(8,18,30,.72);color:var(--gold-2);backdrop-filter:blur(6px);border:1px solid rgba(201,166,90,.35);border-radius:2px}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,166,90,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,166,90,.6)}70%{box-shadow:0 0 0 8px rgba(201,166,90,0)}100%{box-shadow:0 0 0 0 rgba(201,166,90,0)}}
+
+/* ---- image frames ---- */
+.frame{position:relative;overflow:hidden;background:var(--ink-3)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.frame:hover img{transform:scale(1.04)}
+
+/* ---- FAQ ---- */
+.faq{display:grid;border-top:1px solid rgba(24,32,45,.15)}
+.faq details{border-bottom:1px solid rgba(24,32,45,.15)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;font-family:var(--font-display);font-size:clamp(1.25rem,1.8vw,1.55rem);font-weight:500;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:34px;height:34px;flex:none;border:1px solid rgba(24,32,45,.25);border-radius:50%;position:relative;transition:transform .35s var(--ease),background .3s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;background:var(--text);transform:translate(-50%,-50%)}
+.faq summary i::before{width:12px;height:1px}.faq summary i::after{width:1px;height:12px;transition:opacity .3s}
+.faq details[open] summary i{transform:rotate(180deg);background:var(--gold);border-color:var(--gold)}
+.faq details[open] summary i::after{opacity:0}
+.faq .ans{padding:0 0 24px;max-width:70ch;color:var(--muted)}
+
+/* ---- forms ---- */
+.form{display:grid;gap:16px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.form .row{grid-template-columns:1fr}}
+.field{display:grid;gap:8px}
+.field label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--on-ink-muted)}
+.field input,.field select,.field textarea{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink-line);color:var(--on-ink);
+  padding:12px 0;font:inherit;font-weight:300;border-radius:0;transition:border-color .3s;
+}
+.field select option{color:var(--text)}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.light .field label{color:var(--muted)}
+.light .field input,.light .field select,.light .field textarea{border-color:rgba(24,32,45,.25);color:var(--text)}
+
+/* ---- footer ---- */
+.footer{background:#050B14;border-top:1px solid var(--ink-line);padding-block:64px 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+@media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer-grid{grid-template-columns:1fr}}
+.footer h4{font-family:var(--font-body);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer a{color:var(--on-ink-muted);transition:color .3s}.footer a:hover{color:var(--gold-2)}
+.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--ink-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--on-ink-muted)}
+.socials{display:flex;gap:10px}
+.socials a{width:40px;height:40px;border:1px solid var(--ink-line);border-radius:50%;display:grid;place-items:center;transition:border-color .3s,background .3s}
+.socials a:hover{border-color:var(--gold);background:rgba(201,166,90,.1)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+
+/* ---- WhatsApp float ---- */
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:50;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .3s}
+.wa:hover{transform:translateY(-3px)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* ---- toast ---- */
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;z-index:70;background:var(--gold);color:var(--ink);padding:14px 22px;border-radius:2px;font-size:.82rem;letter-spacing:.06em;transition:.4s var(--ease);pointer-events:none;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---- reveal ---- */
+.rv.play{animation:rise .9s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .slide.is-active img{animation:none;transform:none}
+}
+
+/* ---- lightbox ---- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,11,20,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:min(1200px,100%);max-height:82vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+.lb-x,.lb-prev,.lb-next{position:absolute;width:48px;height:48px;border:1px solid rgba(239,233,220,.3);border-radius:50%;display:grid;place-items:center;color:var(--on-ink)}
+.lb-x{top:calc(22px + env(safe-area-inset-top,0px));right:22px}
+.lb-prev{left:18px;top:50%;transform:translateY(-50%)}.lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.lb svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+/* ---- specs (shared) ---- */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink-line);border-bottom:1px solid var(--ink-line)}
+.specs div{padding:14px 12px 14px 0;display:grid;gap:2px;border-right:1px solid var(--ink-line)}
+.specs div+div{padding-left:14px}.specs div:last-child{border-right:0}
+.specs b{font-family:var(--font-display);font-weight:500;font-size:1.25rem;color:var(--gold-2)}
+.specs span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+.specs.light{border-color:rgba(24,32,45,.15)}
+.specs.light div{border-color:rgba(24,32,45,.15)}
+.specs.light b{color:var(--ink)}.specs.light span{color:var(--muted)}
+
+/* ---- stylised map (shared) ---- */
+.map{border:1px solid var(--ink-line);background:
+  radial-gradient(circle at 62% 48%,rgba(201,166,90,.28) 0,rgba(201,166,90,0) 26%),
+  repeating-linear-gradient(0deg,rgba(239,233,220,.05) 0 1px,transparent 1px 42px),
+  repeating-linear-gradient(90deg,rgba(239,233,220,.05) 0 1px,transparent 1px 42px),var(--ink-2);
+  aspect-ratio:16/8;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;max-width:100%}
+.map .pin{position:absolute;left:62%;top:48%;transform:translate(-50%,-100%);width:22px;height:22px}
+.map .pin::before{content:"";position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--gold)}
+.map .pin::after{content:"";position:absolute;left:7px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.map .road{position:absolute;left:-10%;top:30%;width:120%;height:2px;background:rgba(239,233,220,.12);transform:rotate(-22deg)}
+.map .road.b{top:64%;transform:rotate(12deg);height:1px}
+.map .map-cap{display:flex;justify-content:space-between;align-items:center;width:100%;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.map .map-cap span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-ink-muted)}
+
+/* ---- contact (shared) ---- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.c-list{display:grid;gap:22px;margin-top:8px}
+.c-item{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.c-item i{width:44px;height:44px;border:1px solid var(--ink-line);border-radius:50%;display:grid;place-items:center}
+.c-item svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.c-item b{display:block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-ink-muted);margin-bottom:5px;font-weight:500}
+.c-item a{display:block;color:var(--on-ink);font-size:1.05rem}
+.c-item a:hover{color:var(--gold-2)}
+.form-card{padding:clamp(24px,3.5vw,44px);border:1px solid var(--ink-line);background:var(--ink-2);align-self:start}
+.form-card .form{margin-top:22px}
+.form-card .btn{margin-top:8px;justify-self:start}
+
+/* ---- page: promotion ---- */
+.brand img{height:58px}
+.slide-copy .tag{display:flex;gap:10px;flex-wrap:wrap;transform:translateY(20px);opacity:0;transition:.9s var(--ease) .7s}
+.slide.is-active .slide-copy .tag{transform:none;opacity:1}
+.tag span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(239,233,220,.35);color:var(--on-ink)}
+
+.hero .slide-in{padding-bottom:clamp(180px,22vh,250px)}
+.hero .hero-ui{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))}
+@media (max-width:1000px){.hero .slide-in{padding-bottom:190px}.hero .hero-ui{padding-bottom:calc(118px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:560px){.hero .slide-in{padding-bottom:150px}.hero .hero-ui{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}}
+/* finder */
+.finder{position:relative;z-index:5;margin-top:-58px;width:min(1320px,100% - 2*var(--gutter));margin-inline:auto}
+.finder form{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr auto;background:var(--plaster);color:var(--text);border:1px solid var(--stone);box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.finder .f{padding:18px 22px;border-right:1px solid var(--stone);display:grid;gap:6px}
+.finder .f label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.finder .f select,.finder .f input{border:0;background:transparent;font:inherit;font-weight:400;color:var(--text);padding:0;font-size:1rem;width:100%}
+.finder .f select:focus,.finder .f input:focus{outline:none}
+.finder button{border-radius:0;padding-inline:34px;justify-content:center}
+@media (max-width:1000px){.finder form{grid-template-columns:1fr 1fr}.finder .f:nth-child(2n){border-right:0}.finder .f{border-bottom:1px solid var(--stone)}.finder button{grid-column:1/-1}}
+@media (max-width:560px){.finder form{grid-template-columns:1fr}.finder .f{border-right:0}.finder{margin-top:-40px}}
+
+/* residences intro */
+.res-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:end}
+@media (max-width:900px){.res-intro{grid-template-columns:1fr}}
+.res-intro h2{color:var(--ink)}
+.res-intro h2 em{font-style:italic;color:var(--gold-deep)}
+
+/* residence showcase (alternating) */
+.show{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.show.flip{grid-template-columns:.85fr 1.15fr}
+.show.flip .show-media{order:2}
+@media (max-width:900px){.show,.show.flip{grid-template-columns:1fr}.show.flip .show-media{order:0}}
+.show-media{position:relative}
+.show-media .frame{aspect-ratio:4/3;max-width:100%}
+.show-media .badge{position:absolute;left:18px;top:18px;z-index:2}
+.show-media .thumbs{position:absolute;right:-18px;bottom:-26px;display:flex;gap:8px}
+.show-media .thumbs .frame{width:96px;height:72px;aspect-ratio:auto;border:3px solid var(--plaster);box-shadow:0 12px 30px rgba(0,0,0,.25);cursor:zoom-in}
+@media (max-width:560px){.show-media .thumbs{right:8px;bottom:-22px}.show-media .thumbs .frame{width:72px;height:54px}}
+.show-copy{display:grid;gap:20px;color:var(--text)}
+.show-copy h3{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--ink)}
+.show-copy .loc{display:flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.show-copy .loc svg{width:14px;height:14px;stroke:var(--gold-deep);fill:none;stroke-width:1.4}
+.show-copy p{color:var(--muted);max-width:56ch}
+.show-copy .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+
+/* detail sections */
+.detail-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:clamp(30px,4vw,48px)}
+@media (max-width:760px){.detail-head{grid-template-columns:1fr}}
+.detail-head h2{font-size:clamp(2.4rem,5vw,4.2rem)}
+.detail-head .mini{display:flex;gap:26px;flex-wrap:wrap}
+.detail-head .mini div{display:grid;gap:2px}
+.detail-head .mini b{font-family:var(--font-display);font-weight:500;font-size:1.35rem;color:var(--gold-2)}
+.detail-head .mini span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,18vw,240px);gap:10px}
+.gal .frame{cursor:zoom-in}
+.gal .frame:first-child{grid-column:span 2;grid-row:span 2}
+@media (max-width:760px){.gal{grid-template-columns:repeat(2,1fr)}.gal .frame:first-child{grid-column:span 2;grid-row:span 1}}
+.detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,90px);margin-top:clamp(40px,5vw,64px);align-items:start}
+@media (max-width:900px){.detail-grid{grid-template-columns:1fr}}
+.struct{display:grid;border-top:1px solid var(--ink-line);margin:0;padding:0;list-style:none}
+.struct li{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-line);align-items:baseline}
+.struct b{font-family:var(--font-display);font-weight:500;font-size:1.25rem;color:var(--gold-2)}
+.struct span{color:var(--on-ink);opacity:.86}
+@media (max-width:560px){.struct li{grid-template-columns:1fr;gap:4px}}
+.amen{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;margin:0;padding:0;list-style:none}
+.amen li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--ink-line);font-size:.95rem}
+.amen li::before{content:"";width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);flex:none}
+.side-card{border:1px solid var(--ink-line);background:var(--ink-2);padding:clamp(22px,3vw,34px);display:grid;gap:14px}
+.side-card h4{font-size:1.5rem}
+.side-card .btn{justify-content:center}
+.side-card .btn.wa-btn{background:var(--wa);border-color:var(--wa);color:#fff}
+.side-card .btn.wa-btn:hover{background:#25b672}
+.side-card small{color:var(--on-ink-muted);font-size:.8rem;text-align:center}
+
+/* plans */
+.plans-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin:clamp(40px,5vw,64px) 0 24px}
+.tabs{display:inline-flex;border:1px solid var(--ink-line);padding:4px;gap:4px}
+.tabs button{padding:10px 18px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--on-ink-muted);border-radius:0;transition:background .3s,color .3s}
+.tabs button.is-active{background:var(--gold);color:var(--ink)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--ink-line);background:#08121E;display:grid;grid-template-rows:auto 1fr;transition:border-color .3s,transform .4s var(--ease)}
+.plan:hover{border-color:var(--gold);transform:translateY(-4px)}
+.plan .frame{aspect-ratio:4/3;max-width:100%;cursor:zoom-in;background:#08121E}
+.plan .frame img{object-fit:contain}
+#plans-to .plan .frame{background:#1C2630;aspect-ratio:1}
+.plan-body{padding:18px 20px 20px;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.plan-body b{font-family:var(--font-display);font-weight:500;font-size:1.35rem}
+.plan-body .sz{font-family:var(--font-display);font-size:1.25rem;color:var(--gold-2);font-variant-numeric:tabular-nums}
+.plan-body small{grid-column:1/-1;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-ink-muted)}
+
+.plan-ph{display:grid;place-content:center;gap:10px;text-align:center;cursor:default;background:linear-gradient(135deg,#0B1626,#08121E)}
+.plan-ph .ph-big{font-family:var(--font-display);font-size:4rem;line-height:1;color:var(--gold-2)}
+.plan-ph .ph-big sup{font-size:.28em;vertical-align:top;margin-left:6px;color:var(--on-ink-muted);font-family:var(--font-body)}
+.plan-ph .ph-txt{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted)}
+/* why / financing */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(24,32,45,.12)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why div{background:var(--plaster);padding:clamp(26px,3.5vw,44px);display:grid;gap:14px;color:var(--text)}
+.why .ico{width:48px;height:48px;border:1px solid var(--gold-deep);border-radius:50%;display:grid;place-items:center}
+.why .ico svg{width:20px;height:20px;stroke:var(--gold-deep);fill:none;stroke-width:1.2}
+.why h3{font-size:1.7rem;color:var(--ink)}
+.why p{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(40px,5vw,64px);border-top:1px solid rgba(24,32,45,.15);padding-top:32px}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{display:grid;gap:10px;color:var(--text)}
+.step b{font-family:var(--font-display);font-weight:500;font-size:2.4rem;color:var(--gold-deep);line-height:1}
+.step h4{font-size:1.35rem;color:var(--ink)}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* insta band */
+.insta{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+@media (max-width:760px){.insta{grid-template-columns:repeat(3,1fr)}}
+.insta .frame{aspect-ratio:1;max-width:100%}
+.insta-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+
+/* contact: shared in base */
+</style>
+</head>
+<body>
+
+
+<a class="sr" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="KMA Promotion — accueil"><img src="assets/img/logo.webp" alt="KMA Promotion"></a>
+    <ul class="nav-links">
+      <li><a href="#residences">Résidences</a></li>
+      <li><a href="#khazrouna">Khazrouna</a></li>
+      <li><a href="#touares">Touares</a></li>
+      <li><a href="#financement">Financement</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="../kma-group/index.html" style="opacity:.6">← KMA Group</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn ghost" href="#contact">Prendre rendez-vous <span class="arr"></span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" data-dur="6500" aria-label="Nos résidences">
+  <div class="slide is-active">
+    <img src="assets/img/kh10.webp" alt="Résidence Khazrouna de nuit — façades éclairées, balcons et claustras bois">
+    <div class="slide-in"><div class="slide-copy">
+      <span class="eyebrow">KMA Promotion · Blida</span>
+      <h1 class="h-xl">Votre espace,<br>notre signature.</h1>
+      <p class="lede">Immeubles de haut standing, complexes résidentiels privatifs et architectures d'exception à Ouled Yaïch, Blida.</p>
+      <div class="ctas"><a class="btn" href="#residences">Découvrir les résidences <span class="arr"></span></a><a class="btn ghost" href="#contact">Réserver une visite</a></div>
+    </div></div>
+  </div>
+  <div class="slide">
+    <img src="assets/img/kh11.webp" alt="Résidence Khazrouna — tour R+10 avec espaces commerciaux au RDC">
+    <div class="slide-in"><div class="slide-copy">
+      <span class="eyebrow">Résidence Khazrouna · Ouled Yaïch</span>
+      <h2 class="h-xl">Dix étages,<br>une adresse.</h2>
+      <p class="lede">F2, F3 et F4 de 40 à 150 m², commerces et services en pied d'immeuble, parking souterrain de 22 places.</p>
+      <div class="tag"><span>F2 · F3 · F4</span><span>R+10</span><span>Parking 22 places</span><span>Ascenseurs</span></div>
+      <div class="ctas"><a class="btn" href="#khazrouna">Voir Khazrouna <span class="arr"></span></a></div>
+    </div></div>
+  </div>
+  <div class="slide">
+    <img src="assets/img/to17.webp" alt="Résidence Touares au crépuscule, entourée de verdure">
+    <div class="slide-in"><div class="slide-copy">
+      <span class="eyebrow">Résidence Touares · Ouled Yaïch</span>
+      <h2 class="h-xl">Neuf logements,<br>à taille humaine.</h2>
+      <p class="lede">F3 et F4, simplex ou duplex au choix, de 94 à 170 m² — intimité garantie dans un environnement calme et privilégié.</p>
+      <div class="tag"><span>9 logements</span><span>Simplex / Duplex</span><span>94 – 170 m²</span><span>Financement bancaire</span></div>
+      <div class="ctas"><a class="btn" href="#touares">Voir Touares <span class="arr"></span></a></div>
+    </div></div>
+  </div>
+  <div class="slide">
+    <img src="assets/img/khd.webp" alt="Entrée de résidence aménagée — allée, escalier et paysagement">
+    <div class="slide-in"><div class="slide-copy">
+      <span class="eyebrow">Conçu, construit et livré par le groupe</span>
+      <h2 class="h-xl">Le promoteur qui<br>construit lui-même.</h2>
+      <p class="lede">ETG, l'entreprise de travaux du groupe KMA, réalise nos chantiers : qualité, délais et finitions maîtrisés de bout en bout.</p>
+      <div class="ctas"><a class="btn" href="#financement">Comment acheter <span class="arr"></span></a><a class="btn ghost" href="https://wa.me/213560550558" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div></div>
+  </div>
+
+  <div class="hero-ui">
+    <div class="counter"><b>01</b><small>/ 04</small></div>
+    <div class="dots" role="tablist" aria-label="Diapositives">
+      <button class="is-active" aria-label="Diapositive 1"><i></i></button>
+      <button aria-label="Diapositive 2"><i></i></button>
+      <button aria-label="Diapositive 3"><i></i></button>
+      <button aria-label="Diapositive 4"><i></i></button>
+    </div>
+    <div class="arrows">
+      <button class="prev" aria-label="Précédent"><svg viewBox="0 0 16 16"><path d="M10 2 4 8l6 6"/></svg></button>
+      <button class="next" aria-label="Suivant"><svg viewBox="0 0 16 16"><path d="m6 2 6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="scroll-hint">Défiler</div>
+</section>
+
+<!-- ================= FINDER ================= -->
+<div class="finder">
+  <form data-ok="Recherche enregistrée — les appartements correspondants s'affichent ci-dessous.">
+    <div class="f"><label for="f-res">Résidence</label><select id="f-res" name="residence"><option>Toutes les résidences</option><option>Résidence Khazrouna</option><option>Résidence Touares</option></select></div>
+    <div class="f"><label for="f-typ">Typologie</label><select id="f-typ" name="type"><option>F2 · F3 · F4</option><option>F2</option><option>F3</option><option>F4</option><option>Duplex</option></select></div>
+    <div class="f"><label for="f-surf">Surface</label><select id="f-surf" name="surface"><option>Toutes surfaces</option><option>Moins de 80 m²</option><option>80 – 120 m²</option><option>Plus de 120 m²</option></select></div>
+    <div class="f"><label for="f-pay">Financement</label><select id="f-pay" name="pay"><option>Comptant ou bancaire</option><option>Paiement comptant</option><option>Financement bancaire</option></select></div>
+    <button class="btn" type="submit">Trouver mon appartement</button>
+  </form>
+</div>
+
+<!-- ================= RÉSIDENCES ================= -->
+<section class="section light" id="residences">
+  <div class="wrap">
+    <div class="res-intro rv" style="margin-bottom:clamp(48px,6vw,84px)">
+      <div class="stack">
+        <span class="eyebrow">Nos résidences</span>
+        <h2 class="h-lg">Deux adresses à Ouled Yaïch, <em>deux façons d'habiter</em> Blida.</h2>
+      </div>
+      <p class="muted lede">Une tour urbaine de dix étages avec commerces en pied d'immeuble, ou une résidence confidentielle de neuf logements au calme. Les deux sont en cours de réalisation, et se réservent dès maintenant.</p>
+    </div>
+
+    <div class="show rv" style="margin-bottom:clamp(64px,8vw,120px)">
+      <div class="show-media" data-gallery>
+        <span class="badge">En cours de réalisation</span>
+        <figure class="frame" data-src="assets/img/kh11.webp" data-alt="Résidence Khazrouna — vue d'ensemble" data-cap="Résidence Khazrouna"><img src="assets/img/kh11.webp" alt="Résidence Khazrouna — vue d'ensemble"></figure>
+        <div class="thumbs">
+          <figure class="frame" data-src="assets/img/kh10.webp" data-alt="Khazrouna de nuit" data-cap="Résidence Khazrouna"><img src="assets/img/kh10.webp" alt="Khazrouna de nuit"></figure>
+          <figure class="frame" data-src="assets/img/khb.webp" data-alt="Détail de façade" data-cap="Résidence Khazrouna"><img src="assets/img/khb.webp" alt="Détail de façade"></figure>
+          <figure class="frame" data-src="assets/img/khe.webp" data-alt="Parking souterrain" data-cap="Résidence Khazrouna"><img src="assets/img/khe.webp" alt="Parking souterrain"></figure>
+        </div>
+      </div>
+      <div class="show-copy">
+        <div class="loc"><svg viewBox="0 0 16 16"><path d="M8 14s-5-4.4-5-8a5 5 0 0 1 10 0c0 3.6-5 8-5 8z"/><circle cx="8" cy="6" r="1.8"/></svg>Ouled Yaïch · Blida · RN1</div>
+        <h3>Résidence Khazrouna</h3>
+        <p>Un projet résidentiel moderne conçu pour offrir un cadre de vie alliant confort, élégance et fonctionnalité. Le projet intègre des espaces commerciaux et de services au RDC et en mezzanine, pour un quotidien pratique et agréable, avec des surfaces adaptées aux besoins de chaque famille.</p>
+        <div class="specs light">
+          <div><b>F2 · F3 · F4</b><span>Typologies</span></div>
+          <div><b>40 – 150 m²</b><span>Surfaces</span></div>
+          <div><b>R+10</b><span>10 étages · 22 places</span></div>
+        </div>
+        <div class="ctas"><a class="btn dark" href="#khazrouna">Plans &amp; détails <span class="arr"></span></a><a class="btn line" href="#contact">Réserver une visite</a></div>
+      </div>
+    </div>
+
+    <div class="show flip rv">
+      <div class="show-media" data-gallery>
+        <span class="badge">En cours de réalisation</span>
+        <figure class="frame" data-src="assets/img/to16.webp" data-alt="Résidence Touares — façade sur jardin" data-cap="Résidence Touares"><img src="assets/img/to16.webp" alt="Résidence Touares — façade sur jardin"></figure>
+        <div class="thumbs">
+          <figure class="frame" data-src="assets/img/to12.webp" data-alt="Touares de nuit" data-cap="Résidence Touares"><img src="assets/img/to12.webp" alt="Touares de nuit"></figure>
+          <figure class="frame" data-src="assets/img/to11.webp" data-alt="Terrasse avec pergola" data-cap="Résidence Touares"><img src="assets/img/to11.webp" alt="Terrasse avec pergola"></figure>
+          <figure class="frame" data-src="assets/img/to19.webp" data-alt="Aire de jeux" data-cap="Résidence Touares"><img src="assets/img/to19.webp" alt="Aire de jeux"></figure>
+        </div>
+      </div>
+      <div class="show-copy">
+        <div class="loc"><svg viewBox="0 0 16 16"><path d="M8 14s-5-4.4-5-8a5 5 0 0 1 10 0c0 3.6-5 8-5 8z"/><circle cx="8" cy="6" r="1.8"/></svg>Ouled Yaïch · Blida</div>
+        <h3>Résidence Touares</h3>
+        <p>Une résidence à taille humaine composée de seulement 9 logements soigneusement conçus pour offrir confort, intimité et qualité de vie. Un cadre de vie moderne, dans un environnement calme et privilégié — simplex ou duplex, au choix.</p>
+        <div class="specs light">
+          <div><b>F3 · F4</b><span>Simplex / Duplex</span></div>
+          <div><b>94 – 170 m²</b><span>Surfaces</span></div>
+          <div><b>9</b><span>Logements</span></div>
+        </div>
+        <div class="ctas"><a class="btn dark" href="#touares">Plans &amp; détails <span class="arr"></span></a><a class="btn line" href="#contact">Réserver une visite</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KHAZROUNA DETAIL ================= -->
+<section class="section" id="khazrouna">
+  <div class="wrap">
+    <div class="detail-head rv">
+      <div class="stack"><span class="eyebrow">Résidence · Ouled Yaïch, Blida</span><h2>Khazrouna</h2></div>
+      <div class="mini"><div><b>F2, F3 et F4</b><span>Typologies</span></div><div><b>40 à 150 m²</b><span>Surface</span></div><div><b>Sous-sol</b><span>Parking 22 places</span></div></div>
+    </div>
+    <div class="gal rv" data-gallery>
+      <figure class="frame" data-src="assets/img/kh11.webp" data-alt="Vue d'ensemble de la tour" data-cap="Khazrouna — vue d'ensemble"><img src="assets/img/kh11.webp" alt="Vue d'ensemble de la tour Khazrouna"></figure>
+      <figure class="frame" data-src="assets/img/kh10.webp" data-alt="Façade de nuit" data-cap="Khazrouna — façade de nuit"><img src="assets/img/kh10.webp" alt="Façade de nuit"></figure>
+      <figure class="frame" data-src="assets/img/khc.webp" data-alt="Contre-plongée de jour" data-cap="Khazrouna — façade de jour"><img src="assets/img/khc.webp" alt="Contre-plongée de jour"></figure>
+      <figure class="frame" data-src="assets/img/khb.webp" data-alt="Balcons et claustras bois" data-cap="Khazrouna — balcons"><img src="assets/img/khb.webp" alt="Balcons et claustras bois"></figure>
+      <figure class="frame" data-src="assets/img/khd.webp" data-alt="Entrée aménagée" data-cap="Khazrouna — entrée"><img src="assets/img/khd.webp" alt="Entrée aménagée"></figure>
+          </div>
+    <div class="detail-grid">
+      <div class="stack rv" style="gap:26px">
+        <h3 class="h-md">Un immeuble complet : commerces en bas, dix étages de logements au-dessus.</h3>
+        <p class="muted">Résidence Khazrouna est un projet résidentiel moderne conçu pour offrir un cadre de vie alliant confort, élégance et fonctionnalité. Le projet intègre également des espaces commerciaux et de services afin d'assurer un quotidien pratique et agréable à ses résidents.</p>
+        <div class="stack" style="gap:12px">
+          <span class="eyebrow">Structure du bâtiment</span>
+          <ul class="struct">
+            <li><b>Sous-sol</b><span>Parking souterrain sécurisé — 22 places.</span></li>
+            <li><b>RDC + Mezzanine</b><span>Locaux de services et espaces commerciaux.</span></li>
+            <li><b>R+1 → R+10</b><span>10 étages de résidences — F2, F3 et F4.</span></li>
+          </ul>
+        </div>
+        <div class="stack" style="gap:12px">
+          <span class="eyebrow">Caractéristiques</span>
+          <ul class="amen">
+            <li>Parking souterrain</li><li>Aire de jeux</li><li>Caméras de surveillance</li><li>Ascenseurs</li><li>Deux bâches à eau</li><li>Poste de garde</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stack rv" style="gap:16px">
+        <div class="side-card">
+          <span class="eyebrow">Cette résidence vous intéresse ?</span>
+          <h4>Contactez-nous pour Khazrouna</h4>
+          <p class="muted">Un conseiller vous renseigne sur les disponibilités, les surfaces et les modalités de paiement.</p>
+          <a class="btn wa-btn" href="https://wa.me/213560550558?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20R%C3%A9sidence%20Khazrouna" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="tel:0560550558">05 60 55 05 58</a>
+          <small>Samedi – Jeudi · 8h30 – 16h30</small>
+        </div>
+        <div class="map" aria-label="Localisation Khazrouna"><span class="road"></span><span class="road b"></span><span class="pin"></span><div class="map-cap"><span>Route de la ZI de Béni Mered · Ouled Yaïch</span><a class="textlink" href="https://www.google.com/maps/search/R%C3%A9sidence+Khazrouna+Ouled+Ya%C3%AFch" target="_blank" rel="noopener">Ouvrir dans Maps <span class="arr"></span></a></div></div>
+      </div>
+    </div>
+
+    <div class="plans-head rv">
+      <div class="stack" style="gap:8px"><span class="eyebrow">Plans des appartements</span><h3 class="h-md">Choisissez votre typologie</h3></div>
+      <div class="tabs" data-tabs="#plans-kh"><button class="is-active" data-filter="all">Tous</button><button data-filter="F2">F2</button><button data-filter="F3">F3</button><button data-filter="F4">F4</button></div>
+    </div>
+    <div class="plans rv" id="plans-kh" data-gallery>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_a_f3a.webp" data-alt="Plan F3 A — Bloc A — 90 m²" data-cap="Khazrouna · F3 A · Bloc A · 90 m²"><img src="assets/img/khp_a_f3a.webp" alt="Plan F3 A — Bloc A"></figure><div class="plan-body"><b>F3 A · Bloc A</b><span class="sz">90 m²</span><small>3 pièces · Suite parentale · Balcon</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_a_f3b.webp" data-alt="Plan F3 B — Bloc A — 70 m²" data-cap="Khazrouna · F3 B · Bloc A · 70 m²"><img src="assets/img/khp_a_f3b.webp" alt="Plan F3 B — Bloc A"></figure><div class="plan-body"><b>F3 B · Bloc A</b><span class="sz">70 m²</span><small>3 pièces · Dressing · Balcon</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/khp_b_f3a.webp" data-alt="Plan F3 A — Bloc B — 100 m²" data-cap="Khazrouna · F3 A · Bloc B · 100 m²"><img src="assets/img/khp_b_f3a.webp" alt="Plan F3 A — Bloc B"></figure><div class="plan-body"><b>F3 A · Bloc B</b><span class="sz">100 m²</span><small>3 pièces · Suite parentale · Balcon</small></div></article>
+      <article class="plan" data-type="F2"><figure class="frame" data-src="assets/img/khp_c_f2.webp" data-alt="Plan F2 — Bloc C — 63 m²" data-cap="Khazrouna · F2 · Bloc C · 63 m²"><img src="assets/img/khp_c_f2.webp" alt="Plan F2 — Bloc C"></figure><div class="plan-body"><b>F2 · Bloc C</b><span class="sz">63 m²</span><small>2 pièces · Balcon</small></div></article>
+      <article class="plan" data-type="F4"><figure class="frame" data-src="assets/img/khp_c_f4.webp" data-alt="Plan F4 — Bloc C — 120 m²" data-cap="Khazrouna · F4 · Bloc C · 120 m²"><img src="assets/img/khp_c_f4.webp" alt="Plan F4 — Bloc C"></figure><div class="plan-body"><b>F4 · Bloc C</b><span class="sz">120 m²</span><small>4 pièces · Suite parentale · 2 balcons</small></div></article>
+      <article class="plan" data-type="F3"><div class="frame plan-ph"><span class="ph-big">F3<sup>95 m²</sup></span><span class="ph-txt">Plan disponible sur demande</span></div><div class="plan-body"><b>F3 B · Bloc B</b><span class="sz">95 m²</span><small>3 pièces · Sur demande</small></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOUARES DETAIL ================= -->
+<section class="section ink2" id="touares">
+  <div class="wrap">
+    <div class="detail-head rv">
+      <div class="stack"><span class="eyebrow">Résidence · Ouled Yaïch, Blida</span><h2>Touares</h2></div>
+      <div class="mini"><div><b>F3, F4, Penthouse</b><span>Typologies</span></div><div><b>Simplex / Duplex</b><span>Configurations</span></div><div><b>94 à 170 m²</b><span>Surface</span></div></div>
+    </div>
+    <div class="gal rv" data-gallery>
+      <figure class="frame" data-src="assets/img/to16.webp" data-alt="Façade sur jardin" data-cap="Touares — façade sur jardin"><img src="assets/img/to16.webp" alt="Façade sur jardin"></figure>
+      <figure class="frame" data-src="assets/img/to12.webp" data-alt="Vue de nuit" data-cap="Touares — vue de nuit"><img src="assets/img/to12.webp" alt="Vue de nuit"></figure>
+      <figure class="frame" data-src="assets/img/to11.webp" data-alt="Terrasse et pergola" data-cap="Touares — terrasse"><img src="assets/img/to11.webp" alt="Terrasse et pergola"></figure>
+      <figure class="frame" data-src="assets/img/to14.webp" data-alt="Entrée de l'immeuble" data-cap="Touares — entrée"><img src="assets/img/to14.webp" alt="Entrée de l'immeuble"></figure>
+      <figure class="frame" data-src="assets/img/to19.webp" data-alt="Aire de jeux" data-cap="Touares — aire de jeux"><img src="assets/img/to19.webp" alt="Aire de jeux"></figure>
+    </div>
+    <div class="detail-grid">
+      <div class="stack rv" style="gap:26px">
+        <h3 class="h-md">Neuf logements seulement : l'intimité d'une maison, le confort d'une résidence.</h3>
+        <p class="muted">Résidence Touares est une résidence à taille humaine composée de seulement 9 logements soigneusement conçus pour offrir confort, intimité et qualité de vie. Elle propose un cadre de vie moderne dans un environnement calme et privilégié.</p>
+        <div class="stack" style="gap:12px">
+          <span class="eyebrow">Typologies &amp; surfaces</span>
+          <ul class="struct">
+            <li><b>F3 simplex</b><span>94, 102, 106 et 115 m².</span></li>
+            <li><b>F3 duplex</b><span>110 et 115 m² — RDC + R+1.</span></li>
+            <li><b>F4 duplex</b><span>170 m² — RDC + mezzanine.</span></li>
+          </ul>
+        </div>
+        <div class="stack" style="gap:12px">
+          <span class="eyebrow">Caractéristiques</span>
+          <ul class="amen">
+            <li>Parking souterrain</li><li>Aire de jeux</li><li>Caméras de surveillance</li><li>Ascenseurs</li><li>Bâche à eau</li><li>Simplex / duplex au choix</li><li>Intimité garantie</li><li>Environnement calme</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stack rv" style="gap:16px">
+        <div class="side-card">
+          <span class="eyebrow">Cette résidence vous intéresse ?</span>
+          <h4>Contactez-nous pour Touares</h4>
+          <p class="muted">Paiement comptant ou financement bancaire : nous vous accompagnons dans le montage de votre dossier.</p>
+          <a class="btn wa-btn" href="https://wa.me/213560550558?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20R%C3%A9sidence%20Touares" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="tel:0560550558">05 60 55 05 58</a>
+          <small>Samedi – Jeudi · 8h30 – 16h30</small>
+        </div>
+        <div class="map" aria-label="Localisation Touares"><span class="road"></span><span class="road b"></span><span class="pin"></span><div class="map-cap"><span>Ouled Yaïch · Blida</span><a class="textlink" href="https://www.google.com/maps/search/R%C3%A9sidence+Touares+Ouled+Ya%C3%AFch" target="_blank" rel="noopener">Ouvrir dans Maps <span class="arr"></span></a></div></div>
+      </div>
+    </div>
+
+    <div class="plans-head rv">
+      <div class="stack" style="gap:8px"><span class="eyebrow">Plans des appartements</span><h3 class="h-md">Simplex ou duplex, au choix</h3></div>
+      <div class="tabs" data-tabs="#plans-to"><button class="is-active" data-filter="all">Tous</button><button data-filter="F3">F3</button><button data-filter="F4">F4 Duplex</button></div>
+    </div>
+    <div class="plans rv" id="plans-to" data-gallery>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/top_f3_94.webp" data-alt="Plan F3 — 94 m²" data-cap="Touares · F3 · 94 m²"><img src="assets/img/top_f3_94.webp" alt="Plan F3 — 94 m²"></figure><div class="plan-body"><b>Appartement F3</b><span class="sz">94 m²</span><small>3 pièces · Simplex · Balcon</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/top_f3_102.webp" data-alt="Plan F3 — 102 m²" data-cap="Touares · F3 · 102 m²"><img src="assets/img/top_f3_102.webp" alt="Plan F3 — 102 m²"></figure><div class="plan-body"><b>Appartement F3</b><span class="sz">102 m²</span><small>3 pièces · Simplex · Terrasse</small></div></article>
+      <article class="plan" data-type="F3"><figure class="frame" data-src="assets/img/top_f3_106.webp" data-alt="Plan F3 — 106 m²" data-cap="Touares · F3 · 106 m²"><img src="assets/img/top_f3_106.webp" alt="Plan F3 — 106 m²"></figure><div class="plan-body"><b>Appartement F3</b><span class="sz">106 m²</span><small>3 pièces · Simplex · 2 balcons</small></div></article>
+      <article class="plan" data-type="F4"><figure class="frame" data-src="assets/img/top_f4_rdc.webp" data-alt="Plan F4 duplex — niveau RDC — 170 m²" data-cap="Touares · F4 duplex · RDC"><img src="assets/img/top_f4_rdc.webp" alt="Plan F4 duplex — RDC"></figure><div class="plan-body"><b>F4 Duplex · RDC</b><span class="sz">170 m²</span><small>4 pièces · Niveau bas · Séjour, cuisine, chambre</small></div></article>
+      <article class="plan" data-type="F4"><figure class="frame" data-src="assets/img/top_f4_r1.webp" data-alt="Plan F4 duplex — mezzanine — 170 m²" data-cap="Touares · F4 duplex · Mezzanine"><img src="assets/img/top_f4_r1.webp" alt="Plan F4 duplex — mezzanine"></figure><div class="plan-body"><b>F4 Duplex · Mezzanine</b><span class="sz">170 m²</span><small>Niveau haut · Suite parentale, chambres, dressing</small></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINANCEMENT ================= -->
+<section class="section light" id="financement">
+  <div class="wrap">
+    <div class="sec-head split rv">
+      <div class="stack"><span class="eyebrow">Acheter avec KMA Promotion</span><h2 class="h-lg" style="color:var(--ink)">Un achat simple, accompagné de bout en bout.</h2></div>
+      <p class="muted">Deux modes de paiement, un seul interlocuteur, et des résidences construites par l'entreprise de travaux du groupe.</p>
+    </div>
+    <div class="why rv">
+      <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3z"/><path d="M3 11h18M7 15h3"/></svg></span><h3>Paiement comptant</h3><p>Réglez votre appartement en une ou plusieurs tranches selon l'avancement du chantier, avec un calendrier clair dès la réservation.</p></div>
+      <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg></span><h3>Financement bancaire</h3><p>Nous préparons avec vous le dossier de crédit immobilier et restons votre interlocuteur auprès de la banque jusqu'au déblocage des fonds.</p></div>
+      <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Construit par le groupe</h3><p>ETG, l'entreprise de travaux de KMA Group, réalise les chantiers : nous maîtrisons la qualité, les finitions et les délais de livraison.</p></div>
+    </div>
+    <div class="steps rv">
+      <div class="step"><b>1</b><h4>Prise de contact</h4><p>Par WhatsApp, téléphone ou formulaire — un conseiller vous rappelle.</p></div>
+      <div class="step"><b>2</b><h4>Visite &amp; choix du plan</h4><p>Au siège à Blida ou sur le chantier à Ouled Yaïch : typologie, étage, orientation.</p></div>
+      <div class="step"><b>3</b><h4>Réservation</h4><p>Signature du contrat de réservation et choix du mode de paiement.</p></div>
+      <div class="step"><b>4</b><h4>Livraison</h4><p>Suivi de l'avancement du chantier jusqu'à la remise des clés.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section class="section" style="padding-block:clamp(48px,6vw,80px)">
+  <div class="wrap">
+    <div class="insta-head rv">
+      <div class="stack" style="gap:6px"><span class="eyebrow">Instagram</span><h3 class="h-md">@kma_promotion</h3></div>
+      <a class="textlink" href="https://instagram.com/kma_promotion" target="_blank" rel="noopener">Suivre le chantier <span class="arr"></span></a>
+    </div>
+    <div class="insta rv">
+      <div class="frame"><img src="assets/img/kh10.webp" alt=""></div>
+      <div class="frame"><img src="assets/img/to18.webp" alt=""></div>
+      <div class="frame"><img src="assets/img/khc.webp" alt=""></div>
+      <div class="frame"><img src="assets/img/to15.webp" alt=""></div>
+      <div class="frame"><img src="assets/img/khb.webp" alt=""></div>
+      <div class="frame"><img src="assets/img/to10.webp" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section ink2" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="stack rv">
+        <span class="eyebrow">Demande de rendez-vous</span>
+        <h2 class="h-lg">Visitons ensemble votre futur appartement.</h2>
+        <p class="muted lede">Remplissez le formulaire pour obtenir un rendez-vous avec un de nos conseillers — au siège à Blida ou directement sur le chantier.</p>
+        <div class="c-list">
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M3 2h3l1.5 3.5L6 7a8 8 0 0 0 3 3l1.5-1.5L14 10v3a1 1 0 0 1-1 1A11 11 0 0 1 2 3a1 1 0 0 1 1-1z"/></svg></i><div><b>KMA Promotion</b><a href="tel:0560550558">05 60 55 05 58</a><a href="tel:0799401712">07 99 40 17 12</a><a href="tel:025234224">025 23 42 24</a></div></div>
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M2 4h12v8H2z"/><path d="m2 4 6 5 6-5"/></svg></i><div><b>E-mail</b><a href="mailto:kma.pro@outlook.com">kma.pro@outlook.com</a></div></div>
+          <div class="c-item"><i><svg viewBox="0 0 16 16"><path d="M8 14s-5-4.4-5-8a5 5 0 0 1 10 0c0 3.6-5 8-5 8z"/><circle cx="8" cy="6" r="1.8"/></svg></i><div><b>Siège</b><a href="https://www.google.com/maps/search/KMA+GROUP+Blida" target="_blank" rel="noopener">Rue Belkacem El Ouzri n°17, Blida 09000</a><span class="muted" style="font-size:.9rem">Samedi – Jeudi · 8h30 – 16h30</span></div></div>
+        </div>
+      </div>
+      <div class="form-card rv">
+        <span class="eyebrow">Formulaire</span>
+        <h3 class="h-md" style="margin-top:12px">Un conseiller vous rappelle sous 24h.</h3>
+        <form class="form" data-ok="Merci — votre demande est enregistrée, un conseiller KMA Promotion vous rappelle sous 24h.">
+          <div class="row">
+            <div class="field"><label for="p-nom">Nom &amp; prénom</label><input id="p-nom" name="nom" type="text" placeholder="Votre nom" required></div>
+            <div class="field"><label for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" placeholder="05 .. .. .. .." required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="p-res">Résidence</label><select id="p-res" name="residence"><option>Résidence Khazrouna</option><option>Résidence Touares</option><option>Je ne sais pas encore</option></select></div>
+            <div class="field"><label for="p-typ">Typologie souhaitée</label><select id="p-typ" name="type"><option>F3</option><option>F2</option><option>F4</option><option>Duplex</option><option>Penthouse</option></select></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="p-pay">Mode de paiement</label><select id="p-pay" name="pay"><option>Paiement comptant</option><option>Financement bancaire</option><option>À définir</option></select></div>
+            <div class="field"><label for="p-mail">E-mail</label><input id="p-mail" name="email" type="email" placeholder="vous@exemple.dz"></div>
+          </div>
+          <div class="field"><label for="p-msg">Message</label><textarea id="p-msg" name="message" placeholder="Étage souhaité, orientation, délai d'achat…"></textarea></div>
+          <button class="btn" type="submit">Demander un rendez-vous <span class="arr"></span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack" style="gap:16px">
+        <a class="brand" href="#top"><img src="assets/img/logo.webp" alt="KMA Promotion" style="height:72px"></a>
+        <p class="muted" style="max-width:36ch">Promotion immobilière — conception d'immeubles de haut standing, complexes résidentiels privatifs et architectures d'exception.</p>
+        <div class="socials">
+          <a href="https://instagram.com/kma_promotion" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17 5.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.5 8c-.1-1.5-.4-2.9-1.5-4S17.5 2.6 16 2.5C14.4 2.4 9.6 2.4 8 2.5 6.5 2.6 5.1 2.9 4 4S2.6 6.5 2.5 8c-.1 1.6-.1 6.4 0 8 .1 1.5.4 2.9 1.5 4s2.5 1.4 4 1.5c1.6.1 6.4.1 8 0 1.5-.1 2.9-.4 4-1.5s1.4-2.5 1.5-4c.1-1.6.1-6.4 0-8zm-2 9.7a3.2 3.2 0 0 1-1.8 1.8c-1.2.5-4.2.4-5.7.4s-4.5.1-5.7-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.2-.4-4.2-.4-5.7s-.1-4.5.4-5.7A3.2 3.2 0 0 1 6.3 4.5c1.2-.5 4.2-.4 5.7-.4s4.5-.1 5.7.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.2.4 4.2.4 5.7s.1 4.5-.4 5.7z"/></svg></a>
+          <a href="https://www.facebook.com/ETEKMABLIDA" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+          <a href="https://www.tiktok.com/@etg_kma_dz" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Résidences</h4><ul><li><a href="#khazrouna">Résidence Khazrouna</a></li><li><a href="#touares">Résidence Touares</a></li><li><a href="#financement">Financement</a></li><li><a href="#contact">Réserver une visite</a></li></ul></div>
+      <div><h4>Le groupe</h4><ul><li><a href="../kma-group/index.html">KMA Group</a></li><li><a href="../kma-group/index.html#etg">ETG — Entreprise des Travaux</a></li><li><a href="../kma-group/index.html#faq">Questions fréquentes</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:0560550558">05 60 55 05 58</a></li><li><a href="tel:0799401712">07 99 40 17 12</a></li><li><a href="tel:025234224">025 23 42 24</a></li><li><a href="mailto:kma.pro@outlook.com">kma.pro@outlook.com</a></li><li><a href="#contact">Rue Belkacem El Ouzri n°17, Blida</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 KMA Promotion — KMA Groupe. Tous droits réservés.</span>
+      <span>Proposition de refonte — Webminds Digital Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/213560550558" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2 .6 2.6.5a2.4 2.4 0 0 0 1.5-1.1 1.9 1.9 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg></a>
+<div class="toast" role="status" aria-live="polite"></div>
+<div class="lb" role="dialog" aria-label="Galerie">
+  <button class="lb-x" aria-label="Fermer"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  <button class="lb-prev" aria-label="Précédent"><svg viewBox="0 0 16 16"><path d="M10 2 4 8l6 6"/></svg></button>
+  <img src="" alt="">
+  <button class="lb-next" aria-label="Suivant"><svg viewBox="0 0 16 16"><path d="m6 2 6 6-6 6"/></svg></button>
+  <div class="lb-cap"></div>
+</div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* nav */
+  var nav=$('.nav');
+  function onScroll(){ if(nav){ nav.classList.toggle('scrolled', window.scrollY>40); } }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var burger=$('.burger');
+  if(burger){ burger.addEventListener('click',function(){ nav.classList.toggle('open'); burger.setAttribute('aria-expanded', nav.classList.contains('open')); }); }
+  $$('.nav-links a').forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); }); });
+
+  /* hero slider */
+  $$('.hero').forEach(function(hero){
+    var slides=$$('.slide',hero), dots=$$('.dots button',hero), cur=$('.counter b',hero);
+    var i=0, n=slides.length, dur=parseInt(hero.getAttribute('data-dur')||'6500',10), timer=null, paused=false;
+    hero.style.setProperty('--dur', dur+'ms');
+    function go(k){
+      i=(k+n)%n;
+      slides.forEach(function(s,j){ s.classList.toggle('is-active', j===i); });
+      dots.forEach(function(d,j){ d.classList.toggle('is-active', j===i); d.setAttribute('aria-current', j===i?'true':'false'); });
+      if(cur){ cur.textContent=('0'+(i+1)).slice(-2); }
+      restart();
+    }
+    function restart(){ clearTimeout(timer); if(!paused){ timer=setTimeout(function(){ go(i+1); }, dur); } }
+    dots.forEach(function(d,j){ d.addEventListener('click',function(){ go(j); }); });
+    var prev=$('.arrows .prev',hero), next=$('.arrows .next',hero);
+    if(prev) prev.addEventListener('click',function(){ go(i-1); });
+    if(next) next.addEventListener('click',function(){ go(i+1); });
+    hero.addEventListener('mouseenter',function(){ paused=true; clearTimeout(timer); });
+    hero.addEventListener('mouseleave',function(){ paused=false; restart(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='ArrowRight') go(i+1); if(e.key==='ArrowLeft') go(i-1); });
+    var sx=null;
+    hero.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+    hero.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){ go(dx<0?i+1:i-1); } sx=null; });
+    go(0);
+  });
+
+  /* reveal (only for elements below the fold at init) */
+  if('IntersectionObserver' in window){
+    var vh=window.innerHeight;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('play'); io.unobserve(e.target); } }); },{threshold:.12});
+    $$('.rv').forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top>vh){ io.observe(el); } });
+  }
+
+  /* tabs / filters */
+  $$('[data-tabs]').forEach(function(group){
+    var btns=$$('button',group), target=$(group.getAttribute('data-tabs'));
+    if(!target) return;
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){ x.classList.toggle('is-active', x===b); });
+      var f=b.getAttribute('data-filter');
+      $$('[data-type]',target).forEach(function(card){ card.hidden = !(f==='all' || card.getAttribute('data-type')===f); });
+    }); });
+  });
+
+  /* forms -> toast (maquette) */
+  var toast=$('.toast');
+  $$('form').forEach(function(f){ f.addEventListener('submit',function(e){ e.preventDefault(); if(toast){ toast.textContent=f.getAttribute('data-ok')||'Demande envoyée — nous vous rappelons rapidement.'; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); },3600); } f.reset(); }); });
+
+  /* lightbox */
+  var lb=$('.lb'); if(lb){
+    var lbImg=$('img',lb), lbCap=$('.lb-cap',lb), items=[], k=0;
+    function open(list,idx){ items=list; k=idx; show(); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function show(){ var it=items[k]; lbImg.src=it.src; lbImg.alt=it.alt||''; lbCap.textContent=(it.cap||it.alt||'')+(items.length>1?'  ·  '+(k+1)+' / '+items.length:''); }
+    function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+    $$('[data-gallery]').forEach(function(g){
+      var figs=$$('[data-src]',g);
+      var list=figs.map(function(f){ return {src:f.getAttribute('data-src'), alt:f.getAttribute('data-alt')||'', cap:f.getAttribute('data-cap')||''}; });
+      figs.forEach(function(f,idx){ f.addEventListener('click',function(){ open(list,idx); }); f.setAttribute('tabindex','0'); f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(list,idx); } }); });
+    });
+    $('.lb-x',lb).addEventListener('click',close);
+    $('.lb-prev',lb).addEventListener('click',function(){ k=(k-1+items.length)%items.length; show(); });
+    $('.lb-next',lb).addEventListener('click',function(){ k=(k+1)%items.length; show(); });
+    lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open')) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight'){ k=(k+1)%items.length; show(); } if(e.key==='ArrowLeft'){ k=(k-1+items.length)%items.length; show(); } });
+  }
+
+  /* horizontal scrollers */
+  $$('[data-scroller]').forEach(function(sc){
+    var track=$('.track',sc), l=$('.sc-prev',sc), r=$('.sc-next',sc);
+    if(!track) return;
+    var step=function(){ return Math.min(track.clientWidth*.8, 520); };
+    if(l) l.addEventListener('click',function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+    if(r) r.addEventListener('click',function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
+  });
+})();
+
+</script>
+
+</body>
+</html>
